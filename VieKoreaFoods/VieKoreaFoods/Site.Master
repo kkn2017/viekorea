@@ -1,0 +1,81 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="VieKoreaFoods.Site" %>
+
+<%@ Register Src="~/UserControls/ucNavigation.ascx" TagPrefix="uc1" TagName="ucNavigation" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>VieKorea Restaurant</title>
+	<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Monda:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="flexslider/flexslider.css">
+	<link rel="stylesheet" href="css/main.css">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<form id="form2" runat="server">
+	<header class="module">
+		<div class="header_wrapper">
+            <asp:HyperLink NavigateUrl="~/ActiveServerPageExtended/index.aspx" runat="server">
+                <asp:Image cssClass="logo" ImageUrl="~/img/logo.png" runat="server" AlternateText="Company Logo" />
+            </asp:HyperLink>
+			<a href="cart.html" class="cart">
+				<div class="cart_icon"></div>Cart
+			</a>
+			<div class="search">
+				<input type="text" class="search_text" maxlength="20" placeholder="Search Here">
+				<button type="submit" class="button">search</button> 
+			</div>
+		</div>		
+		<div class="nav module">
+            <asp:ContentPlaceHolder runat="server" ID="ContentPlaceHolder1">
+                <uc1:ucNavigation runat="server" id="ucNavigation" />
+            </asp:ContentPlaceHolder>			
+		</div>			
+	</header>
+	<div class="wrapper">
+		<main>            
+			<div class="slide_show module">
+			    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+			</div>
+			<div class="fe_foods module">
+				<asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+                </asp:ContentPlaceHolder>	
+			</div>			
+		</main>
+		<aside>			
+			<div class="login module_plain">
+				<input type="text" class="your_name" placeholder="Your Account">
+				<input type="password" class="your_password" placeholder="Password">
+				<button type="submit" class="button">Log In </button>
+			</div>
+			<div class="details module">
+				<div class="address">450 Central Park</div>
+				<div>Open 7 Days</div>				
+				<div class="time">11 am - 9 pm</div>
+			</div>				
+		 </aside>		
+		<footer class="module_plain clearfix">
+			<nav class="social">
+				<ul>
+					<li><a href="#"><span class="twitter">Twitter</span></a></li>
+					<li><a href="#"><span class="facebook">Facebook</span></a></li>
+					<li><a href="#"><span class="rss">RSS</span></a></li>
+				</ul>
+			</nav>
+			<div class="copyright">
+				<p class="store_name">VieKorea</p>
+				<p class="rights">©VieKorea All Rights Reserved</p>
+			</div>
+		</footer>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/jquery-2.1.4.min.js"><\/script>')</script>
+	<script src="../flexslider/jquery.flexslider-min.js"></script>
+	<script src="../js/main.js"></script>
+</form>
+</body>
+</html>	
