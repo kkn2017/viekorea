@@ -67,8 +67,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ActiveServerPageExtended\index.aspx" />
-    <Content Include="ActiveServerPageExtended\products.aspx" />
+    <Content Include="Admin\admin_login.aspx" />
+    <Content Include="UserControls\ucLogin.ascx" />
+    <Content Include="UserPage\index.aspx" />
+    <Content Include="UserPage\login.aspx" />
+    <Content Include="UserPage\products.aspx" />
     <Content Include="css\main.css" />
     <Content Include="flexslider\flexslider.css" />
     <Content Include="flexslider\jquery.flexslider-min.js" />
@@ -103,18 +106,39 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ActiveServerPageExtended\index.aspx.cs">
+    <Compile Include="Admin\admin_login.aspx.cs">
+      <DependentUpon>admin_login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\admin_login.aspx.designer.cs">
+      <DependentUpon>admin_login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucLogin.ascx.cs">
+      <DependentUpon>ucLogin.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLogin.ascx.designer.cs">
+      <DependentUpon>ucLogin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPage\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ActiveServerPageExtended\index.aspx.designer.cs">
+    <Compile Include="UserPage\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ActiveServerPageExtended\products.aspx.cs">
+    <Compile Include="UserPage\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPage\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPage\products.aspx.cs">
       <DependentUpon>products.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ActiveServerPageExtended\products.aspx.designer.cs">
+    <Compile Include="UserPage\products.aspx.designer.cs">
       <DependentUpon>products.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">

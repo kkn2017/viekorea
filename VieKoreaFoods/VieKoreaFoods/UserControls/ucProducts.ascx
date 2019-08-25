@@ -10,8 +10,13 @@ file: ucProducts.ascx--%>
 
 <asp:Repeater ID="rptProducts" runat="server" OnItemCommand="rptProducts_ItemCommand">
     <ItemTemplate>
+        <%
+            string productId = Request.QueryString["id"];
+            if (string.IsNullOrEmpty(productId))
+            {
+        %>
         <ul>
-            <li>
+            <li>                
                 <asp:Image
                     runat="server"
                     ImageUrl= '<%# Eval("ImageName") %>' />
@@ -21,23 +26,32 @@ file: ucProducts.ascx--%>
                 <div>
                     <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("price", "{0:c}") %>'></asp:Label>
                 </div>
-                <%
-                    string productId = Request.QueryString["id"];
-                    if (string.IsNullOrEmpty(productId))
-                    {
-                %>
                 <div class="button">
                     <a href='Products.aspx?id=<%# Eval("id") %>'>details</a>
                 </div>
-                <%  
-                    }
-                %>
             </li>
         </ul>
         <%
+            }
+        %>
+        <%  
             if (!string.IsNullOrEmpty(productId))
             {
         %>
+        <ul class="one_food">
+            <li class="one_food">
+                <asp:Image
+                    class="one_food"
+                    runat="server"
+                    ImageUrl= '<%# Eval("ImageName") %>' />
+                <div>
+                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("name") %>'></asp:Label>
+                </div>
+                <div>
+                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("price", "{0:c}") %>'></asp:Label>
+                </div>
+            </li>
+        </ul>        
         <div class="descriptions">
             <div class="brief_description">
                 Brief Description:&nbsp;<asp:Label ID="lblBriefDescription" Text='<%# Eval("briefDescription") %>' runat="server" />

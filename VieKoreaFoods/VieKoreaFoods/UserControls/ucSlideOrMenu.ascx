@@ -1,4 +1,8 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucSlideOrMenu.ascx.cs" Inherits="VieKoreaFoods.UserControl.ucSlideOrMenu" %>
+﻿<%--author: Kwangeun Oh
+date: 2019.03.05
+file: ucSlideOrMenu.ascx--%>
+
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucSlideOrMenu.ascx.cs" Inherits="VieKoreaFoods.UserControl.ucSlideOrMenu" %>
 
 <% 
     if (IsIndex == true)
@@ -44,7 +48,7 @@
                 <ul class="cuisines">
 					<li class="cuisine">
                         <asp:HyperLink 
-                            NavigateUrl='<%# Eval("id","~/ActiveServerPageExtended/Products.aspx?categoryId={0}") %>'
+                            NavigateUrl='<%# Eval("id","~/UserPage/Products.aspx?categoryId={0}") %>'
                             Text='<%# Eval("name") %>'
                             runat="server" />
 					</li>

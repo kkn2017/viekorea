@@ -92,12 +92,13 @@ header .nav ul li a:focus,
 header .nav ul li a.active {
 	opacity: 1;
 }
-form {
-	text-align: center;
+.form {
+    text-align: center;
 }
 input {
 	background-color: #000;
 	border: 1px solid #888;
+    color: #fff;
 	margin: 8px 10px auto auto;
 	max-width: 100%;
 	padding: 3px 5px;
@@ -108,6 +109,28 @@ input:focus { outline: none; }
 input:focus::-webkit-input-placeholder { color: transparent; }
 input:focus::-moz-placeholder { color:transparent; }
 input:-moz-placeholder { color:transparent; }
+.login .form {
+    margin: auto;
+}
+.login .your_name {
+    display: inline;
+}
+.login .your_password {
+    display: inline;
+}
+.login .button {
+    display: inline;
+    width: auto;
+}
+.login .your_register {
+    display: inline;
+    font-size: 15px;
+    margin-right: 10px;
+}
+.login .val {
+    display: inline;
+    color: red;
+}
 .login input {
 	display: block;
 	margin: 8px auto;
@@ -130,8 +153,9 @@ input:-moz-placeholder { color:transparent; }
 	outline: none;
 }
 .fe_foods.module {
-	background-color: #fff;
-	color: #999;
+    background-color: #fff;
+    color: #999;
+    text-align: center;
 }
 .fe_foods h2 {
 	background: #e39401;
@@ -155,7 +179,7 @@ input:-moz-placeholder { color:transparent; }
 	display: block;	
 	padding: 10px;
 	position: relative;
-	text-align: center;
+    text-align: center;
 }
 .fe_foods ul li img {
 	width: 40%;
@@ -369,7 +393,7 @@ footer .rss {
 		font-family: 'Monda', sans-serif;
 	}
 	.fe_foods {
-		padding: 10px;
+		padding: 10px 10px 20px 10px;
 	}
 	.fe_foods h2 {
 		padding: 10px;
@@ -381,8 +405,11 @@ footer .rss {
 		display: inline-block;
 		width: 25%;
 		margin-right: -4px;
-		vertical-align: top;
 	}
+    .fe_foods ul li.one_food {
+        width: 50%;
+        font-size: 1.3rem;
+    }
 	.fe_foods ul li img {
 		margin-right: 0;
 		margin-bottom: 15px;
@@ -621,10 +648,10 @@ footer .rss {
 	}
 	.slide_show .cuisine {	
 		font-size: 1.7rem;
-	}	
-	aside {
-		width: 25%;
 	}
+    aside {
+        width: 25%;
+    }
 	aside .details {
 		margin: auto;
 	}

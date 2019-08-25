@@ -62,17 +62,11 @@ namespace VieKoreaFoods.UserControl
                     if (Int32.TryParse(id, out productId))
                     {
                         LoadProductDetails(productId);
-                        Control ctl = this.rptProducts.FindControl("lblName");
-
-                        if (ctl != null)
-                        {
-                            Label lbl = (Label)ctl;
-                            //this.lblHeading.Text = lbl.Text;
-                        }
+                        this.lblHeading.Text = "Details";
                     }
                     else
                     {
-                        //this.lblHeading.Text = "No such product";
+                       this.lblHeading.Text = "No such product";
                     }
                 }
                 else
@@ -107,7 +101,7 @@ namespace VieKoreaFoods.UserControl
                 });
             });
 
-            //this.lblHeading.Text = "Product search results";
+            this.lblHeading.Text = "Product search results";
 
             DBHelper.DataBinding(this.rptProducts, "SearchProducts", prms.ToArray());
         }

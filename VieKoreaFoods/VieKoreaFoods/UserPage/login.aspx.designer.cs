@@ -7,10 +7,10 @@
 // </자동 생성됨>
 //------------------------------------------------------------------------------
 
-namespace VieKoreaFoods.ActiveServerPageExtended {
+namespace VieKoreaFoods.UserPage {
     
     
-    public partial class index {
+    public partial class login {
         
         /// <summary>
         /// ucSlideOrMenu 컨트롤입니다.

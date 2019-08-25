@@ -1,6 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="VieKoreaFoods.Site" %>
 
-<%@ Register Src="~/UserControls/ucNavigation.ascx" TagPrefix="uc1" TagName="ucNavigation" %>
 
 <!DOCTYPE html>
 <html>
@@ -18,7 +17,7 @@
 <form id="form2" runat="server">
 	<header class="module">
 		<div class="header_wrapper">
-            <asp:HyperLink NavigateUrl="~/ActiveServerPageExtended/index.aspx" runat="server">
+            <asp:HyperLink NavigateUrl="~/UserPage/index.aspx" runat="server">
                 <asp:Image cssClass="logo" ImageUrl="~/img/logo.png" runat="server" AlternateText="Company Logo" />
             </asp:HyperLink>
 			<a href="cart.html" class="cart">
@@ -31,7 +30,6 @@
 		</div>		
 		<div class="nav module">
             <asp:ContentPlaceHolder runat="server" ID="ContentPlaceHolder1">
-                <uc1:ucNavigation runat="server" id="ucNavigation" />
             </asp:ContentPlaceHolder>			
 		</div>			
 	</header>
@@ -48,9 +46,8 @@
 		</main>
 		<aside>			
 			<div class="login module_plain">
-				<input type="text" class="your_name" placeholder="Your Account">
-				<input type="password" class="your_password" placeholder="Password">
-				<button type="submit" class="button">Log In </button>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder4" runat="server">
+                </asp:ContentPlaceHolder>
 			</div>
 			<div class="details module">
 				<div class="address">450 Central Park</div>
@@ -67,7 +64,9 @@
 				</ul>
 			</nav>
 			<div class="copyright">
-				<p class="store_name">VieKorea</p>
+                <asp:HyperLink runat="server" NavigateUrl="~/Admin/admin_login.aspx">
+                    <p class="store_name">VieKorea</p>
+                </asp:HyperLink>
 				<p class="rights">©VieKorea All Rights Reserved</p>
 			</div>
 		</footer>
