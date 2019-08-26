@@ -27,7 +27,7 @@ file: ucProducts.ascx--%>
                     <asp:Label ID="lblPrice" runat="server" Text='<%# Eval("price", "{0:c}") %>'></asp:Label>
                 </div>
                 <div class="button">
-                    <a href='Products.aspx?id=<%# Eval("id") %>'>details</a>
+                    <a href='../UserPage/Products.aspx?id=<%# Eval("id") %>'>details</a>
                 </div>
             </li>
         </ul>

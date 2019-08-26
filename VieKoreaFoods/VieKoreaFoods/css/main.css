@@ -135,6 +135,15 @@ input:-moz-placeholder { color:transparent; }
 	display: block;
 	margin: 8px auto;
 }
+.login .loginStatus .loginName {
+    display: block;
+    color: #fcb802;
+    font-weight: bold;
+    text-align: center;
+}
+.login .loginStatus .button {
+    display: block;
+}
 .button {
 	background-color: #e39401;
 	border: 0;

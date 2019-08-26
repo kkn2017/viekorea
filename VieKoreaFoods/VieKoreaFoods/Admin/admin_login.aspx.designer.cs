@@ -13,6 +13,15 @@ namespace VieKoreaFoods.Admin {
     public partial class admin_login {
         
         /// <summary>
+        /// ucNavigation 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::VieKoreaFoods.UserControl.ucNavigation ucNavigation;
+        
+        /// <summary>
         /// ucSlideOrMenu 컨트롤입니다.
         /// </summary>
         /// <remarks>

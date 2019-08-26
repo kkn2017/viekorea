@@ -14,7 +14,20 @@ namespace VieKoreaFoods.UserControls
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.AfterLogin.Visible = false;
+            
+            if (Session["authenticated"] == null)
+            {
+                this.btnLogout.Visible = false;
+                this.lblLoginName.Visible = false;
+                this.Login.Visible = true;
+            }
+            else
+            {
+                this.btnLogout.Visible = true;
+                this.lblLoginName.Text = "Welcome, " + Session["authenticatedUser"].ToString();
+                this.lblLoginName.Visible = true;
+                this.Login.Visible = false;
+            }
         }
 
         protected void Login_Authenticate(object sender, AuthenticateEventArgs e)
@@ -35,7 +48,7 @@ namespace VieKoreaFoods.UserControls
                     }
                     else
                     {
-                        Response.Redirect("~/UserPage/index.aspx");
+                        Response.Redirect($"{HttpContext.Current.Request.Url.ToString()}");
                     }
                 }
             }
@@ -155,6 +168,18 @@ namespace VieKoreaFoods.UserControls
             isArchived = DBHelper.GetScalarValue<bool>("Archive", prms.ToArray());
 
             return isArchived;
+        }
+
+        protected void LogoutButton_Click(object sender, EventArgs e)
+        {
+            Session["authenticated"] = null;
+            Session["authenticatedUser"] = null;
+            Session["validatedUser"] = null;
+            Session["admin"] = null;
+
+            this.btnLogout.Visible = false;
+            this.lblLoginName.Visible = false;
+            this.Login.Visible = true;
         }
     }
 }

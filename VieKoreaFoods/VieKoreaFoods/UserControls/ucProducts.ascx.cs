@@ -20,63 +20,60 @@ namespace VieKoreaFoods.UserControl
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            // string id and categoryId initialize the id queryString and categoryId queryString 
+            string id = Request.QueryString["id"];
+            string categoryId = Request.QueryString["categoryId"];
+
+            // If the featured boolean is true, then Feature products are populated on the page 
+            if (this.Featured)
             {
-                // string id and categoryId initialize the id queryString and categoryId queryString 
-                string id = Request.QueryString["id"];
-                string categoryId = Request.QueryString["categoryId"];
+                this.lblHeading.Text = "This week's foods";
+                LoadFeaturedProducts();
+            }
+            // If the cateogryId QueryString is requested, then products by categoryId are loaded.
+            else if (!string.IsNullOrEmpty(categoryId))
+            {
+                int category = 0;
 
-                // If the featured boolean is true, then Feature products are populated on the page 
-                if (this.Featured)
+                if (int.TryParse(categoryId, out category))
                 {
-                    this.lblHeading.Text = "This week's foods";
-                    LoadFeaturedProducts();
-                }
-                // If the cateogryId QueryString is requested, then products by categoryId are loaded.
-                else if (!string.IsNullOrEmpty(categoryId))
-                {
-                    int category = 0;
+                    List<SqlParameter> prms = new List<SqlParameter>();
+                    prms.Add(CategoryParamHelper(category));
+                    this.lblHeading.Text = $"{DBHelper.GetQueryValue<string>("SelectCategories", "name", prms.ToArray())}";
 
-                    if (int.TryParse(categoryId, out category))
-                    {
-                        List<SqlParameter> prms = new List<SqlParameter>();
-                        prms.Add(CategoryParamHelper(category));
-                        this.lblHeading.Text = $"{DBHelper.GetQueryValue<string>("SelectCategories", "name", prms.ToArray())}";
-
-                        LoadProductsByCategory(category);
-                    }
-                    else
-                    {
-                        this.lblHeading.Text = "No such category";
-                    }
-                }
-                // If QueryString means searching for products, then product search method is activated.
-                else if (Request.QueryString["word1"] != null)
-                {
-                    ProductSearch();
-                }
-                // If id QueryString is requested, then product details are loaded.
-                else if (!string.IsNullOrEmpty(id))
-                {
-                    int productId = 0;
-                    if (Int32.TryParse(id, out productId))
-                    {
-                        LoadProductDetails(productId);
-                        this.lblHeading.Text = "Details";
-                    }
-                    else
-                    {
-                       this.lblHeading.Text = "No such product";
-                    }
+                    LoadProductsByCategory(category);
                 }
                 else
                 {
-                    this.lblHeading.Text = "All Foods";
-                    LoadProducts();
+                    this.lblHeading.Text = "No such category";
                 }
-
-                ProductCountMessage();
             }
+            // If QueryString means searching for products, then product search method is activated.
+            else if (Request.QueryString["word1"] != null)
+            {
+                ProductSearch();
+            }
+            // If id QueryString is requested, then product details are loaded.
+            else if (!string.IsNullOrEmpty(id))
+            {
+                int productId = 0;
+                if (Int32.TryParse(id, out productId))
+                {
+                    LoadProductDetails(productId);
+                    this.lblHeading.Text = "Details";
+                }
+                else
+                {
+                    this.lblHeading.Text = "No such product";
+                }
+            }
+            else
+            {
+                this.lblHeading.Text = "All Foods";
+                LoadProducts();
+            }
+
+            ProductCountMessage();
         }
         /// <summary>
         /// Search the product by typing keywords in the product search box.
