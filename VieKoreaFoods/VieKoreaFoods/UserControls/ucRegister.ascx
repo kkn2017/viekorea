@@ -223,7 +223,8 @@ file: ucRegister.ascx--%>
     </table>
 </div>
 <div id="afterRegister" runat="server">
-    <p>Thank you for creating an account. We sent a validation letter to your email address. Your account is going to be activated right 
-        after checking the email. Now you can go to </p>
-    <asp:HyperLink NavigateUrl="~/UserPage/index.aspx" runat="server">Home</asp:HyperLink>
+    <p style="text-align: left;">Thank you for creating an account. We sent a validation letter to your email address. Your account is going to be activated right 
+        after checking the email.</p>
+    <br />
+    <h3>Go to <asp:HyperLink NavigateUrl="~/UserPage/index.aspx" runat="server" ForeColor="Blue">Home</asp:HyperLink></h3>
 </div>

@@ -11,8 +11,8 @@ file: Site.Master--%>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>VieKorea Restaurant</title>
 	<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Monda:400,700" rel="stylesheet">
-	<link rel="stylesheet" href="~/flexslider/flexslider.css">
-	<link rel="stylesheet" href="~/css/main.css">
+	<link rel="stylesheet" href="flexslider/flexslider.css">
+	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <form id="form2" runat="server">
@@ -21,7 +21,7 @@ file: Site.Master--%>
             <asp:HyperLink NavigateUrl="~/UserPage/index.aspx" runat="server">
                 <asp:Image cssClass="logo" ImageUrl="~/img/logo.png" runat="server" AlternateText="Company Logo" />
             </asp:HyperLink>
-			<a href="cart.html" class="cart">
+			<a href="../UserPage/cart.aspx" class="cart">
 				<div class="cart_icon"></div>Cart
 			</a>
 			<div class="search">
@@ -59,8 +59,8 @@ file: Site.Master--%>
 		<footer class="module_plain clearfix">
 			<nav class="social">
 				<ul>
-					<li><a href="#"><span class="twitter">Twitter</span></a></li>
-					<li><a href="#"><span class="facebook">Facebook</span></a></li>
+					<li><a href="https://www.twitter.com"><span class="twitter">Twitter</span></a></li>
+					<li><a href="https://www.facebook.com"><span class="facebook">Facebook</span></a></li>
 					<li><a href="#"><span class="rss">RSS</span></a></li>
 				</ul>
 			</nav>

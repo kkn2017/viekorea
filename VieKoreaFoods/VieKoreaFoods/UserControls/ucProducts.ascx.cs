@@ -20,60 +20,63 @@ namespace VieKoreaFoods.UserControl
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            // string id and categoryId initialize the id queryString and categoryId queryString 
-            string id = Request.QueryString["id"];
-            string categoryId = Request.QueryString["categoryId"];
-            
-            // If the featured boolean is true, then Feature products are populated on the page 
-            if (this.Featured)
+            if (!IsPostBack)
             {
-                this.lblHeading.Text = "This week's foods";
-                LoadFeaturedProducts();
-            }
-            // If the cateogryId QueryString is requested, then products by categoryId are loaded.
-            else if (!string.IsNullOrEmpty(categoryId))
-            {
-                int category = 0;
+                // string id and categoryId initialize the id queryString and categoryId queryString 
+                string id = Request.QueryString["id"];
+                string categoryId = Request.QueryString["categoryId"];
 
-                if (int.TryParse(categoryId, out category))
+                // If the featured boolean is true, then Feature products are populated on the page 
+                if (this.Featured)
                 {
-                    List<SqlParameter> prms = new List<SqlParameter>();
-                    prms.Add(CategoryParamHelper(category));
-                    this.lblHeading.Text = $"{DBHelper.GetQueryValue<string>("SelectCategories", "name", prms.ToArray())}";
+                    this.lblHeading.Text = "This week's foods";
+                    LoadFeaturedProducts();
+                }
+                // If the cateogryId QueryString is requested, then products by categoryId are loaded.
+                else if (!string.IsNullOrEmpty(categoryId))
+                {
+                    int category = 0;
 
-                    LoadProductsByCategory(category);
+                    if (int.TryParse(categoryId, out category))
+                    {
+                        List<SqlParameter> prms = new List<SqlParameter>();
+                        prms.Add(CategoryParamHelper(category));
+                        this.lblHeading.Text = $"{DBHelper.GetQueryValue<string>("SelectCategories", "name", prms.ToArray())}";
+
+                        LoadProductsByCategory(category);
+                    }
+                    else
+                    {
+                        this.lblHeading.Text = "No such category";
+                    }
+                }
+                // If QueryString means searching for products, then product search method is activated.
+                else if (Request.QueryString["word1"] != null)
+                {
+                    ProductSearch();
+                }
+                // If id QueryString is requested, then product details are loaded.
+                else if (!string.IsNullOrEmpty(id))
+                {
+                    int productId = 0;
+                    if (Int32.TryParse(id, out productId))
+                    {
+                        LoadProductDetails(productId);
+                        this.lblHeading.Text = "Details";
+                    }
+                    else
+                    {
+                        this.lblHeading.Text = "No such product";
+                    }
                 }
                 else
                 {
-                    this.lblHeading.Text = "No such category";
+                    this.lblHeading.Text = "All Foods";
+                    LoadProducts();
                 }
-            }
-            // If QueryString means searching for products, then product search method is activated.
-            else if (Request.QueryString["word1"] != null)
-            {
-                ProductSearch();
-            }
-            // If id QueryString is requested, then product details are loaded.
-            else if (!string.IsNullOrEmpty(id))
-            {
-                int productId = 0;
-                if (Int32.TryParse(id, out productId))
-                {
-                    LoadProductDetails(productId);
-                    this.lblHeading.Text = "Details";
-                }
-                else
-                {
-                    this.lblHeading.Text = "No such product";
-                }
-            }
-            else
-            {
-                this.lblHeading.Text = "All Foods";
-                LoadProducts();
-            }
 
-            ProductCountMessage();
+                ProductCountMessage();
+            }
         }
         /// <summary>
         /// Search the product by typing keywords in the product search box.
@@ -210,11 +213,6 @@ namespace VieKoreaFoods.UserControl
             DBHelper.DataBinding(this.rptProducts, "SelectProducts", prms.ToArray());
         }
 
-        /// <summary>
-        /// It is the event handler clicking the add to cart button
-        /// </summary>
-        /// <param name="source"></param>
-        /// <param name="e"></param>
         protected void rptProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             try
@@ -273,7 +271,9 @@ namespace VieKoreaFoods.UserControl
 
             DBHelper.NonQuery("AddToCart", prms.ToArray());
 
-            Response.Redirect("~/Cart.aspx");
+            Response.Redirect("~/UserPage/cart.aspx");
         }
+
+        
     }
 }

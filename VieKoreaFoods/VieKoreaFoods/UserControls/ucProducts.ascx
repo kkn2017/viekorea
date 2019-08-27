@@ -7,7 +7,6 @@ file: ucProducts.ascx--%>
 <h2>
     <asp:Label ID="lblHeading" EnableViewState="false" runat="server" Text="" CssClass="content-heading large"></asp:Label>
 </h2>
-
 <asp:Repeater ID="rptProducts" runat="server" OnItemCommand="rptProducts_ItemCommand">
     <ItemTemplate>
         <%
