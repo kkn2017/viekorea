@@ -110,7 +110,10 @@ input:focus::-webkit-input-placeholder { color: transparent; }
 input:focus::-moz-placeholder { color:transparent; }
 input:-moz-placeholder { color:transparent; }
 .login .form {
-    margin: auto;
+    margin: 0;
+}
+.login .form div {
+    text-align: center;
 }
 .login .your_name {
     display: inline;
@@ -174,6 +177,20 @@ input:-moz-placeholder { color:transparent; }
 	margin: -10px -10px 10px;
 	text-align: center;
 	text-transform: uppercase;
+}
+.fe_foods table {
+    margin: 30px auto;
+}
+.fe_foods table .table_input
+{
+    background-color: #fff;
+    color: #000;
+    margin: 5px auto;
+    width: auto;
+}
+.fe_foods table .button {
+    width: auto;
+    margin: 10px auto;
 }
 .fe_foods ul {
 	list-style: none;
@@ -308,6 +325,8 @@ footer .twitter {
 footer .rss {
 	background-position: -70px 0;
 }
+th {text-align: right;}
+td {text-align: left;}
 .wrapper {
 	margin: auto;
 }

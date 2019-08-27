@@ -10,24 +10,33 @@
 namespace VieKoreaFoods.UserPage {
     
     
-    public partial class login {
+    public partial class register {
         
         /// <summary>
-        /// ucSlideOrMenu 컨트롤입니다.
+        /// ucNavigation 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::VieKoreaFoods.UserControl.ucSlideOrMenu ucSlideOrMenu;
+        protected global::VieKoreaFoods.UserControl.ucNavigation ucNavigation;
         
         /// <summary>
-        /// ucProducts 컨트롤입니다.
+        /// ucRegister 컨트롤입니다.
         /// </summary>
         /// <remarks>
         /// 자동 생성 필드입니다.
         /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
         /// </remarks>
-        protected global::VieKoreaFoods.UserControl.ucProducts ucProducts;
+        protected global::VieKoreaFoods.UserControls.ucRegister ucRegister;
+        
+        /// <summary>
+        /// ucLogin 컨트롤입니다.
+        /// </summary>
+        /// <remarks>
+        /// 자동 생성 필드입니다.
+        /// 수정하려면 디자이너 파일에서 코드 숨김 파일로 필드 선언을 이동하세요.
+        /// </remarks>
+        protected global::VieKoreaFoods.UserControls.ucLogin ucLogin;
     }
 }

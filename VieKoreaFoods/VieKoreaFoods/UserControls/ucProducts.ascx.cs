@@ -10,7 +10,7 @@ namespace VieKoreaFoods.UserControl
 {
     public partial class ucProducts : System.Web.UI.UserControl
     {
-        // Boolean property called Featured for checking whether or not it wants featured products. 
+        // Boolean property called Featured for checking whether or not it wants featured products.
         public bool Featured { get; set; }
 
         /// <summary>
@@ -23,7 +23,7 @@ namespace VieKoreaFoods.UserControl
             // string id and categoryId initialize the id queryString and categoryId queryString 
             string id = Request.QueryString["id"];
             string categoryId = Request.QueryString["categoryId"];
-
+            
             // If the featured boolean is true, then Feature products are populated on the page 
             if (this.Featured)
             {

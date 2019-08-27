@@ -1,5 +1,8 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="VieKoreaFoods.Site" %>
+﻿<%--author: Kwangeun Oh
+date: 2019.03.05
+file: Site.Master--%>
 
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="VieKoreaFoods.Site" %>
 
 <!DOCTYPE html>
 <html>
@@ -8,10 +11,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>VieKorea Restaurant</title>
 	<link href="https://fonts.googleapis.com/css?family=Bree+Serif|Monda:400,700" rel="stylesheet">
-	<link rel="stylesheet" href="flexslider/flexslider.css">
-	<link rel="stylesheet" href="css/main.css">
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+	<link rel="stylesheet" href="~/flexslider/flexslider.css">
+	<link rel="stylesheet" href="~/css/main.css">
 </head>
 <body>
 <form id="form2" runat="server">
@@ -72,7 +73,7 @@
 		</footer>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="js/jquery-2.1.4.min.js"><\/script>')</script>
+	<script>window.jQuery || document.write('<script src="../js/jquery-2.1.4.min.js"><\/script>')</script>
 	<script src="../flexslider/jquery.flexslider-min.js"></script>
 	<script src="../js/main.js"></script>
 </form>

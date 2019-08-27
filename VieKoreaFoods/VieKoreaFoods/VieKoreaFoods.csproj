@@ -69,8 +69,8 @@
   <ItemGroup>
     <Content Include="Admin\admin_login.aspx" />
     <Content Include="UserControls\ucLogin.ascx" />
+    <Content Include="UserControls\ucRegister.ascx" />
     <Content Include="UserPage\index.aspx" />
-    <Content Include="UserPage\login.aspx" />
     <Content Include="UserPage\products.aspx" />
     <Content Include="css\main.css" />
     <Content Include="flexslider\flexslider.css" />
@@ -103,6 +103,8 @@
     <Content Include="UserControls\ucNavigation.ascx" />
     <Content Include="UserControls\ucProducts.ascx" />
     <Content Include="UserControls\ucSlideOrMenu.ascx" />
+    <Content Include="UserPage\register.aspx" />
+    <Content Include="UserPage\validation.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -120,19 +122,19 @@
     <Compile Include="UserControls\ucLogin.ascx.designer.cs">
       <DependentUpon>ucLogin.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ucRegister.ascx.cs">
+      <DependentUpon>ucRegister.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucRegister.ascx.designer.cs">
+      <DependentUpon>ucRegister.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserPage\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserPage\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UserPage\login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UserPage\login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserPage\products.aspx.cs">
       <DependentUpon>products.aspx</DependentUpon>
@@ -171,6 +173,20 @@
     </Compile>
     <Compile Include="UserControls\ucSlideOrMenu.ascx.designer.cs">
       <DependentUpon>ucSlideOrMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPage\register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPage\register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPage\validation.aspx.cs">
+      <DependentUpon>validation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPage\validation.aspx.designer.cs">
+      <DependentUpon>validation.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
