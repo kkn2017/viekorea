@@ -169,7 +169,7 @@ input:-moz-placeholder { color:transparent; }
     color: #999;
     text-align: center;
 }
-.fe_foods h2 {
+h2 {
 	background: #e39401;
 	font-family: 'Bree Serif', sans-serif;
 	color: #000;
@@ -236,9 +236,15 @@ input:-moz-placeholder { color:transparent; }
 .fe_foods .descriptions .button {
     width: auto;
 }
+.fe_foods .view {
+    text-align: center;
+}
 .slide_show.module {
+    background-color: #fff;
+    color: #999;
     padding: 0;
     overflow: hidden;
+    text-align: center;
 }
 .slide_show .cuisines {
 	list-style: none;
@@ -383,7 +389,7 @@ td {text-align: left;}
         width: 30%;
         margin-left: -50px;
     }
-    .fe_foods h2 {
+    h2 {
         font-size: 1.1rem;
         padding: 10px;
     }
@@ -423,7 +429,7 @@ td {text-align: left;}
 	.fe_foods {
 		padding: 10px 10px 20px 10px;
 	}
-	.fe_foods h2 {
+	h2 {
 		padding: 10px;
 	}
     .fe_foods ul {

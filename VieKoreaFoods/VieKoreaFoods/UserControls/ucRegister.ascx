@@ -7,7 +7,9 @@ file: ucRegister.ascx--%>
 <h2>Create Your Account</h2>
 <div id="beforeRegister" runat="server">
     <asp:Label ID="lblError" runat="server" EnableViewState="False" Text="" ForeColor="Red" />
-    <table>
+    <table style=" border: 1px solid #b08101; border-radius: 12px; padding: 15px;">
+        <caption style=" background-color: #e39401; border-radius: 12px; color: white; margin-bottom: -15px; margin-left: auto; margin-right: auto; 
+                padding-top: 5px; padding-bottom: 5px; width: 70%; ">Registeration Form</caption>
         <tr>
             <th>User Name:&nbsp;</th>
             <td>

@@ -144,7 +144,15 @@ namespace VieKoreaFoods.UserControls
 
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
-            Response.Redirect("");
+            if(Session["Authenticated"] == null)
+            {
+                this.CheckLogin.Visible = true;
+            }
+            else
+            {
+                Response.Redirect("~/UserPage/order.aspx");
+
+            }
         }
     }
 }
