@@ -180,6 +180,8 @@ namespace VieKoreaFoods.UserControls
             this.btnLogout.Visible = false;
             this.lblLoginName.Visible = false;
             this.Login.Visible = true;
+
+            Response.Redirect("~/UserPage/index.aspx");
         }
     }
 }

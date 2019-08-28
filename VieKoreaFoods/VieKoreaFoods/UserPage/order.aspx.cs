@@ -11,7 +11,21 @@ namespace VieKoreaFoods.UserPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (IsPostBack)
+            {
+                if (this.rblPaymentMethod.SelectedItem != null)
+                {
+                    if (this.rblPaymentMethod.SelectedItem.ToString() == "Yes")
+                    {
+                        this.lblSeeYou.Visible = true;
+                    }
+                    else
+                    {
+                        this.lblSeeYou.Visible = false;
+                    }
+                        
+                }
+            }   
         }
     }
 }

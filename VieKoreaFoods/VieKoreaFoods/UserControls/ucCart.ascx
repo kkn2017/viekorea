@@ -4,7 +4,11 @@ file: ucCart.ascx--%>
 
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucCart.ascx.cs" Inherits="VieKoreaFoods.UserControls.ucCart" %>
 
-<h2>Shopping Cart</h2>
+<%
+    if (IsOrderPage == false)
+    {
+%>
+<h2>Shopping Cart <asp:Label ID="lblCartItemsCount" runat="server" Visible="false" Text="" Style=" color: blue; font-size: 15px; "/></h2> 
 <div style=" overflow-x: auto; ">
     <asp:GridView ID="grdCart" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId" style=" border: 1.5px solid #b08101; margin: auto; padding: 0; width:80%; " CellPadding="4" >
         <Columns>
@@ -53,7 +57,38 @@ file: ucCart.ascx--%>
 <asp:Button ID="btnUpdateCart" CssClass="button" runat="server" Text="Update Cart" OnClick="btnUpdateCart_Click" Style=" margin: 3px; width: auto; " /> 
 <asp:Button ID="btnContinueShopping" CssClass="button" runat="server" Text="Continue Shopping" OnClick="btnContinueShopping_Click" Style=" margin: 3px; width: auto; " /> 
 <asp:Button ID="btnCheckout" CssClass="button" runat="server" Text="Check Out" OnClick="btnCheckout_Click" Style=" margin: 3px; width: auto; " />
- <div id="CheckLogin" runat="server" visible="false" style=" color: red; ">
-     <p>Sorry, you should log in your account that must be validated. If not, please email the company.</p>
-     <p>If you don't have an account, please create your own account. Click <a href="../UserPage/register.aspx" style=" color: blue; font-weight: bold; ">this</a>.</p>
- </div>
+<div id="CheckLogin" runat="server" visible="false" style=" color: red; ">
+    <p>Sorry, you should log in your account that must be validated. If not, please email the company.</p>
+    <p>If you don't have an account, please create your own account. Click <a href="../UserPage/register.aspx" style=" color: blue; font-weight: bold; ">this</a>.</p>
+</div>
+<%
+    }
+    else
+    {
+%>
+<h2>Order Information</h2>
+<div style=" overflow-x: auto; ">
+    <asp:GridView ID="grdOrder" runat="server" AutoGenerateColumns="False" DataKeyNames="ProductId" style=" border: 1.5px solid #b08101; margin: auto; padding: 0; width:80%; " CellPadding="4" >
+        <Columns>
+            <asp:BoundField DataField="ProductId" HeaderText="Id" HeaderStyle-CssClass="view" ItemStyle-CssClass="view" />
+            <asp:BoundField DataField="ProductName" HeaderText="Name" HeaderStyle-CssClass="view" ItemStyle-CssClass="view" />
+            <asp:BoundField DataField="CurrentDate" HeaderText="Date" HeaderStyle-CssClass="view" ItemStyle-CssClass="view" />
+            <asp:BoundField DataField="Qty" HeaderText="Quantity" HeaderStyle-CssClass="view" ItemStyle-CssClass="view" />
+            <asp:BoundField DataField="Price" DataFormatString="{0:c}" HeaderText="Price" HeaderStyle-CssClass="view" ItemStyle-CssClass="view" />
+            <asp:BoundField DataField="LineTotal" DataFormatString="{0:c}" HeaderText="SubTotal" HeaderStyle-CssClass="view" ItemStyle-CssClass="view" />
+        </Columns>
+        <HeaderStyle BackColor="#e39401" Font-Bold="True" ForeColor="White" BorderStyle="Solid"/>
+        <RowStyle BackColor="White" BorderStyle="Solid" BorderColor="#b08101" ForeColor="Black" />
+    </asp:GridView>
+</div>
+<div style="color:black; text-align: center; margin-top: 10px;">
+    <asp:Label ID="lblTaxShippingCost1" runat="server" Style=" opacity: 0.7; " Text=""></asp:Label><br />
+</div>
+<div style="color:black; text-align: center; margin-top: 7px;">
+    <asp:Label ID="lblCartTotal1" runat="server" Text="" Style=" font-weight: bold; "></asp:Label>
+</div>
+<asp:Button ID="btnGoCart" CssClass="button" runat="server" Text="Go Back To Cart" OnClick="btnGoCart_Click" Style=" margin: 15px auto; width: auto; " />
+<%
+    }
+%>
+

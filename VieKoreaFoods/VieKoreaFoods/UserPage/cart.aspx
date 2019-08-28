@@ -12,7 +12,7 @@ file: cart.aspx--%>
     <uc1:ucNavigation runat="server" ID="ucNavigation" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
-    <uc1:ucCart runat="server" id="ucCart" />
+    <uc1:ucCart runat="server" id="ucCart" IsOrderPage="false" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContentPlaceHolder4" runat="server">
     <uc1:ucLogin runat="server" ID="ucLogin" />

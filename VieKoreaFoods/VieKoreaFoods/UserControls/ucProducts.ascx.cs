@@ -20,12 +20,12 @@ namespace VieKoreaFoods.UserControl
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            // string id and categoryId initialize the id queryString and categoryId queryString 
+            string id = Request.QueryString["id"];
+            string categoryId = Request.QueryString["categoryId"];
+
             if (!IsPostBack)
             {
-                // string id and categoryId initialize the id queryString and categoryId queryString 
-                string id = Request.QueryString["id"];
-                string categoryId = Request.QueryString["categoryId"];
-
                 // If the featured boolean is true, then Feature products are populated on the page 
                 if (this.Featured)
                 {

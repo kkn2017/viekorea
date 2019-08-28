@@ -236,12 +236,8 @@ h2 {
 .fe_foods .descriptions .button {
     width: auto;
 }
-.fe_foods .view {
-    text-align: center;
-}
 .slide_show.module {
     background-color: #fff;
-    color: #999;
     padding: 0;
     overflow: hidden;
     text-align: center;
@@ -253,14 +249,18 @@ h2 {
 }
 .slide_show .cuisine {
     display: inline-block;
-	font-family: 'Bree Serif', sans-serif;
-	text-transform: uppercase;
-	opacity: 0.7;
+    opacity: 0.5;
 }
 .slide_show .cuisine:hover,
 .slide_show .cuisine:focus {
 	opacity: 1;
 }
+.slide_show .cuisine a {
+    color: black;
+    font-family: 'Bree Serif', sans-serif;
+    text-transform: uppercase;
+}
+
 .slide_show .slide .overlay {
 	width: 100%;
 }
@@ -345,6 +345,9 @@ td {text-align: left;}
 }
 .module_plain {
 	margin: 0 10px 20px;
+}
+.view {
+    text-align: center;
 }
 /* ==========================================================================
    MEDIA QUERIES

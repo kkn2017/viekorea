@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Web;
 using System.Web.UI.WebControls;
 
 namespace VieKoreaFoods.UserControls
@@ -12,8 +13,20 @@ namespace VieKoreaFoods.UserControls
         public static double shippingCost;
         public static double totalCost;
 
+        public bool IsOrderPage { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            string cartId = Common.GetCartId(Request, Response);
+            int itemCounts = Common.GetCartCount(cartId);
+
+            if (!string.IsNullOrEmpty(cartId))
+            {
+                this.lblCartItemsCount.Visible = true;
+                this.lblCartItemsCount.Text =
+                    itemCounts == 1 ? $"({ itemCounts } item in the Cart)" : itemCounts > 1 ? $"({ itemCounts } items in the cart)" : "";
+            }
+
             if (!IsPostBack)
             {
                 GetCart();
@@ -23,16 +36,23 @@ namespace VieKoreaFoods.UserControls
 
         private void GetCart()
         {
-            Common.GetCart(this.grdCart, Request, Response);
-
-            if (this.grdCart.Rows.Count == 0)
+            if(this.IsOrderPage == false)
             {
-                this.btnCheckout.Visible = false;
-                this.btnContinueShopping.Visible = false;
-                this.btnUpdateCart.Visible = false;
-                this.lblTotal.Text = "No items in cart";
-                this.lblCartTotal.Visible = false;
-                this.lblTaxShippingCost.Visible = false;
+                Common.GetCart(this.grdCart, Request, Response);
+
+                if (this.grdCart.Rows.Count == 0)
+                {
+                    this.btnCheckout.Visible = false;
+                    this.btnContinueShopping.Visible = false;
+                    this.btnUpdateCart.Visible = false;
+                    this.lblTotal.Text = "No items in cart";
+                    this.lblCartTotal.Visible = false;
+                    this.lblTaxShippingCost.Visible = false;
+                }
+            }
+            else
+            {
+                Common.GetCart(this.grdOrder, Request, Response);
             }
         }
 
@@ -64,16 +84,32 @@ namespace VieKoreaFoods.UserControls
                 totalCost = subTotal + tax + shippingCost;
             }
 
-            this.lblCartTotal.Text = $"Total cost: {totalCost.ToString("c2")}";
-
-            if (this.lblCartTotal.Text.Equals("$0.00"))
+            if (this.IsOrderPage == false)
             {
-                this.lblTaxShippingCost.Text = "";
+                this.lblCartTotal.Text = $"Total cost: {totalCost.ToString("c2")}";
+
+                if (this.lblCartTotal.Text.Equals("$0.00"))
+                {
+                    this.lblTaxShippingCost.Text = "";
+                }
+                else
+                {
+                    this.lblTaxShippingCost.Text = $"Shipping cost: {shippingCost.ToString("c2")} Tax: {tax.ToString("c2")}";
+                }
             }
             else
             {
-                this.lblTaxShippingCost.Text = $"Shipping cost: {shippingCost.ToString("c2")} Tax: {tax.ToString("c2")}";
-            }
+                this.lblCartTotal1.Text = $"Total cost: {totalCost.ToString("c2")}";
+
+                if (this.lblCartTotal1.Text.Equals("$0.00"))
+                {
+                    this.lblTaxShippingCost1.Text = "";
+                }
+                else
+                {
+                    this.lblTaxShippingCost1.Text = $"Shipping cost: {shippingCost.ToString("c2")} Tax: {tax.ToString("c2")}";
+                }
+            }            
         }
 
         protected void btnUpdateCart_Click(object sender, EventArgs e)
@@ -102,13 +138,14 @@ namespace VieKoreaFoods.UserControls
             GetCart();
             GetCartTotal();
 
-            //Update the MasterPage label
+            //Update the Item counts in the cart
             string cartId = Common.GetCartId(Request, Response);
             int count = Common.GetCartCount(cartId);
-            Label lblCartItemsCount = (Label)this.Page.Master.FindControl("lblCartItemsCount");
 
-            if (lblCartItemsCount != null)
-                lblCartItemsCount.Text = count == 1 ? $"{count} item in cart" : count > 1 ? $"{count} items in cart" : "";
+            if (this.lblCartItemsCount != null)
+                this.lblCartItemsCount.Text = count == 1 ? $"{count} item in cart" : count > 1 ? $"{count} items in cart" : "";
+
+            Response.Redirect($"{HttpContext.Current.Request.Url.ToString()}");
         }
 
         protected void btnContinueShopping_Click(object sender, EventArgs e)
@@ -153,6 +190,11 @@ namespace VieKoreaFoods.UserControls
                 Response.Redirect("~/UserPage/order.aspx");
 
             }
+        }
+
+        protected void btnGoCart_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/UserPage/cart.aspx");
         }
     }
 }
