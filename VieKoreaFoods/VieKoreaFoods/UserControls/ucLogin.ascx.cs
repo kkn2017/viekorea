@@ -19,6 +19,7 @@ namespace VieKoreaFoods.UserControls
             {
                 this.btnLogout.Visible = false;
                 this.lblLoginName.Visible = false;
+                this.divAccount.Visible = false;
                 this.Login.Visible = true;
             }
             else
@@ -26,6 +27,7 @@ namespace VieKoreaFoods.UserControls
                 this.btnLogout.Visible = true;
                 this.lblLoginName.Text = "Welcome, " + Session["authenticatedUser"].ToString();
                 this.lblLoginName.Visible = true;
+                this.divAccount.Visible = true;
                 this.Login.Visible = false;
             }
         }

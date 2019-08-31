@@ -48,6 +48,9 @@ file: ucLogin.ascx--%>
     }
 %>
 <div class="loginStatus">
-    <asp:Label ID="lblLoginName" CssClass="loginName" Text="Welcome, " runat="server" />
+    <asp:Label ID="lblLoginName" CssClass="loginName" Text="" runat="server" />
+    <div ID="divAccount" runat="server" style=" text-align: center; margin: 10px auto; ">
+        <a href="../UserPage/account.aspx" style=" color: white; ">My Account</a>
+    </div>
     <asp:Button ID="btnLogout" CssClass="button" runat="server" CommandName="Logout" Text="Logout" OnClick="LogoutButton_Click" />
 </div>

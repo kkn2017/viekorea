@@ -174,7 +174,7 @@ namespace VieKoreaFoods.UserControls
         /// <param name="id"></param>
         private void SendValidationEmail(int id)
         {
-            using (MailMessage message = new MailMessage("VIEKORsender@gmail.com", this.txtEmailAddress.Text.Trim()))
+            using (MailMessage message = new MailMessage("noreply@viekor.com", this.txtEmailAddress.Text.Trim()))
             {
                 message.Subject = "New Account Validation";
                 string body = $"Hi {this.txtUserName.Text.Trim()}, <br /> This is VIEKOR Restaurant. Thank you for creating a new account"

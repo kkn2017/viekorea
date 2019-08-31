@@ -181,15 +181,6 @@ file: ucRegister.ascx--%>
                     ControlToValidate="txtPassword"
                     Display="Dynamic" 
                     ForeColor="Red"></asp:RequiredFieldValidator>
-                <asp:CompareValidator ID="compPassword" runat="server" ValidationGroup="Group"
-                    ErrorMessage="Password does not match"
-                    ToolTip="Passwords do not match"
-                    data-toggle="tooltip"
-                    data-placement="right"
-                    ControlToCompare="txtConfirmPassword"
-                    ControlToValidate="txtPassword"
-                    Display="Dynamic" 
-                    ForeColor="Red"></asp:CompareValidator>
             </td>
         </tr>
         <tr>

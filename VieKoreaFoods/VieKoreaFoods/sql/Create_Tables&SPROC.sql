@@ -141,7 +141,7 @@ CREATE TABLE [dbo].[Orders](
 	[province] [nvarchar](2) NOT NULL,
 	[postalCode] [nvarchar](6) NOT NULL,
 	[phone] [nvarchar](10) NOT NULL,
-	[payment] [bit] NOT NULL,
+	[payment] [nvarchar](50) NOT NULL,
 	[creditCardName] [nvarchar](50) NULL,
 	[creditNumber] [nvarchar](50) NULL,
 	[cvv] [nvarchar](50) NULL
@@ -499,7 +499,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 
-CREATE   PROCEDURE [dbo].[InsertOrder]
+CREATE  PROCEDURE [dbo].[InsertOrder]
 @CustomerId INT,
 @OrderDate DATE,
 @CartUId VARCHAR(50),
@@ -512,11 +512,10 @@ CREATE   PROCEDURE [dbo].[InsertOrder]
 @Province NVARCHAR(2),
 @PostalCode NVARCHAR(6),
 @Phone NVARCHAR(10),
-@Payment BIT,
-@CreditCardName NVARCHAR(50),
-@CreditNumber NVARCHAR(50),
-@Cvv NVARCHAR(50),
-@OrderStatus NVARCHAR(50),
+@Payment NVARCHAR(50),
+@CreditCardName NVARCHAR(50) = NULL,
+@CreditNumber NVARCHAR(50) = NULL,
+@Cvv NVARCHAR(50) = NULL,
 @OrderNo INT OUTPUT
 AS
 BEGIN TRANSACTION
@@ -1283,13 +1282,14 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE   PROCEDURE [dbo].[SelectCustomers]
-@CustomerId INT = NULL
+CREATE  PROCEDURE [dbo].[SelectCustomers]
+@CustomerId INT = NULL,
+@UserName NVARCHAR(50) = NULL
 AS
 BEGIN
 	SELECT * FROM Customers
 	WHERE
-	(@CustomerId IS NULL OR id = @CustomerId)
+	(userName = @UserName OR id = @CustomerId OR userName = NULL OR id = NULL)
 END
 
 /****** Object:  StoredProcedure [dbo].[Validation] ******/
@@ -1345,7 +1345,7 @@ BEGIN
 	SELECT 
 	od.id
 	,p.id as ProductId
-	,p.[name]
+	,p.[name] as ProductName
 	,od.quantity
 	,p.price
 	,i.[name] as ImageName

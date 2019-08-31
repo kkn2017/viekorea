@@ -73,6 +73,7 @@
     <Content Include="UserControls\ucRegister.ascx" />
     <Content Include="UserPage\cart.aspx" />
     <Content Include="UserPage\index.aspx" />
+    <Content Include="UserPage\account.aspx" />
     <Content Include="UserPage\order.aspx" />
     <Content Include="UserPage\products.aspx" />
     <Content Include="css\main.css" />
@@ -152,6 +153,13 @@
     </Compile>
     <Compile Include="UserPage\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserPage\account.aspx.cs">
+      <DependentUpon>account.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserPage\account.aspx.designer.cs">
+      <DependentUpon>account.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserPage\order.aspx.cs">
       <DependentUpon>order.aspx</DependentUpon>

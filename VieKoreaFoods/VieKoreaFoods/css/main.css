@@ -95,6 +95,14 @@ header .nav ul li a.active {
 .form {
     text-align: center;
 }
+.rdButton {
+    font-size: 17px;
+}
+.rdButton input {
+   margin: auto 20px;
+   background-color: white;
+   width: auto;
+}
 input {
 	background-color: #000;
 	border: 1px solid #888;
@@ -134,9 +142,19 @@ input:-moz-placeholder { color:transparent; }
     display: inline;
     color: red;
 }
+.divRadioButton {
+    padding-bottom: 10px;
+    margin: -10px auto auto;
+    width: 50%;
+}
+.fe_foods .tblCredit .ddlCredit {
+    border: 1px solid #b08101;
+    display: inline;
+    width: 95%;
+}
 .login input {
-	display: block;
-	margin: 8px auto;
+    display: block;
+    margin: 8px auto;
 }
 .login .loginStatus .loginName {
     display: block;
@@ -177,6 +195,19 @@ h2 {
 	margin: -10px -10px 10px;
 	text-align: center;
 	text-transform: uppercase;
+}
+.fe_foods .accountLink {
+    display: inline;
+    color: black;
+    font-size: 1.7rem;
+    font-weight: bold;
+    opacity: .6;
+    padding: 0 70px;
+    margin: auto;
+}
+.fe_foods .accountLink:hover,
+.fe_foods .accountLink:focus {
+    opacity: 1;
 }
 .fe_foods table {
     margin: 30px auto;
@@ -349,6 +380,9 @@ td {text-align: left;}
 .view {
     text-align: center;
 }
+.detailView {
+    text-align: right;
+}
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
@@ -396,6 +430,9 @@ td {text-align: left;}
         font-size: 1.1rem;
         padding: 10px;
     }
+    .fe_foods .accountLink {
+        display: inline;
+    }
     .fe_foods ul li {
         margin-bottom: 5px;
         min-height: 110px;  
@@ -408,6 +445,27 @@ td {text-align: left;}
     }
     .fe_foods .descriptions {
         display: inline-block;
+    }
+    .divRadioButton {
+        width: 100%;
+        margin: -10px auto;
+    }
+    .rdButton {
+        font-size: 12px;
+    }
+    .rdButton input {
+        margin: auto;
+        background-color: white;
+        width: auto;
+    }
+    .tblCredit td {
+        font-size: 0.8rem;
+        margin: auto;
+        width: 80%;
+    }
+    .tblCredit input
+    {
+        width: auto;
     }
     .slide_show .slides,
     .slide_show .slide {
@@ -513,6 +571,9 @@ td {text-align: left;}
 	header .search {
 		margin-top: 30px;
 	}
+    .fe_foods .accountLink {
+        display: inline-block;    
+    }
 }
 @media (min-width: 480px) and (max-width: 739px) {
 	.content {
@@ -617,6 +678,10 @@ td {text-align: left;}
     }
     .fe_foods .descriptions .full_description {
         font-size: 15px;
+    }
+    .fe_foods .accountLink {
+        font-size: 1.3rem;
+        padding: 0 50px;
     }
 }
 @media (min-width: 740px) and (max-width: 1023px){

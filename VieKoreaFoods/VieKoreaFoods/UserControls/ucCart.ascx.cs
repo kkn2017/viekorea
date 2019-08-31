@@ -58,31 +58,24 @@ namespace VieKoreaFoods.UserControls
 
         private void GetCartTotal()
         {
-
             double subTotal = Convert.ToDouble(Common.GetCartTotal(Request, Response));
-            double[] shippingCosts = { 0.00, 7.00, 12.00 };
             tax = subTotal * 0.15;
 
             // According to the sub total, apply different shipping costs to the total cost.
-            if (subTotal == 0.00)
+            if (subTotal > 0.00 && subTotal <= 25.00)
             {
-                totalCost = 0.00;
+                shippingCost = 7.00;
             }
-            else if (subTotal <= 35.00)
+            else if (subTotal > 25.00)
             {
-                shippingCost = shippingCosts[1];
-                totalCost = subTotal + tax + shippingCost;
-            }
-            else if (subTotal > 35.00 && subTotal <= 75.00)
-            {
-                shippingCost = shippingCosts[2];
-                totalCost = subTotal + tax + shippingCost;
+                shippingCost = 0.00;
             }
             else
             {
-                shippingCost = shippingCosts[0];
-                totalCost = subTotal + tax + shippingCost;
+                shippingCost = 0.00;
             }
+
+            totalCost = subTotal + tax + shippingCost;
 
             if (this.IsOrderPage == false)
             {
@@ -181,7 +174,7 @@ namespace VieKoreaFoods.UserControls
 
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
-            if(Session["Authenticated"] == null)
+            if(Session["Authenticated"] == null || Session["validatedUser"] == null)
             {
                 this.CheckLogin.Visible = true;
             }

@@ -7,54 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VieKoreaFoods.UserControls {
+namespace VieKoreaFoods.UserPage {
     
     
-    public partial class ucLogin {
+    public partial class MyAccount {
         
         /// <summary>
-        /// Login control.
+        /// ucNavigation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Login Login;
+        protected global::VieKoreaFoods.UserControl.ucNavigation ucNavigation;
         
         /// <summary>
-        /// Login1 control.
+        /// hypPrivacy control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Login Login1;
+        protected global::System.Web.UI.WebControls.HyperLink hypPrivacy;
         
         /// <summary>
-        /// lblLoginName control.
+        /// hypOrderHistory control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLoginName;
+        protected global::System.Web.UI.WebControls.HyperLink hypOrderHistory;
         
         /// <summary>
-        /// divAccount control.
+        /// ucLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAccount;
-        
-        /// <summary>
-        /// btnLogout control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogout;
+        protected global::VieKoreaFoods.UserControls.ucLogin ucLogin;
     }
 }
