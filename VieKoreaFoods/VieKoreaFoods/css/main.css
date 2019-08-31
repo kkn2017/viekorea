@@ -182,6 +182,19 @@ input:-moz-placeholder { color:transparent; }
 	transform: scale(1.1);
 	outline: none;
 }
+.button_detail {
+    background-color: #e39401;
+    border: 0;
+    border-radius: 25px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 11px;
+    margin: 20px 3px auto;
+    padding: 5px 7px 5px;
+    text-transform: uppercase;
+    width: auto;
+}
 .fe_foods.module {
     background-color: #fff;
     color: #999;
@@ -380,14 +393,11 @@ td {text-align: left;}
 .view {
     text-align: center;
 }
-.detailView {
-    text-align: right;
-}
 /* ==========================================================================
    MEDIA QUERIES
    ========================================================================== */
 @media (max-width: 479px) {
-	header .logo {
+    header .logo {
 		display: block;
 		margin: auto calc(20% + 35px);
 	}

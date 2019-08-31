@@ -1358,6 +1358,36 @@ BEGIN
 	,p.price,od.quantity,i.[name]
 END
 
+/****** Object:  StoredProcedure [dbo].[SelectOrders] ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[SelectOrders]
+@CustomerId INT = NULL
+AS
+BEGIN
+	SELECT *
+	FROM Orders
+	WHERE (CustomerId = @CustomerId OR CustomerId = NULL);
+END
+
+
+/****** Object:  StoredProcedure [dbo].[DeleteOrders] ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[DeleteOrders]
+@OrderNumber INT
+AS
+BEGIN
+	DELETE FROM OrderDetails WHERE orderNumber = @OrderNumber;
+	DELETE FROM Orders WHERE orderNumber = @OrderNumber;
+END
+
 /****** Object:  StoredProcedure dbo.UpdateOrder ******/
 --SET ANSI_NULLS ON
 --GO
