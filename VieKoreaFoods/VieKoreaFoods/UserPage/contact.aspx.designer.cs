@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VieKoreaFoods.UserControl {
+namespace VieKoreaFoods.UserPage {
     
     
-    public partial class ucSlideOrMenu {
+    public partial class contact {
         
         /// <summary>
-        /// lstCategories control.
+        /// ucNavigation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lstCategories;
+        protected global::VieKoreaFoods.UserControl.ucNavigation ucNavigation;
+        
+        /// <summary>
+        /// ucLogin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::VieKoreaFoods.UserControls.ucLogin ucLogin;
     }
 }

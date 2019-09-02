@@ -16,12 +16,12 @@ file: ucNavigation.ascx--%>
         </asp:HyperLink>
 	</li>
 	<li class="nav-about">
-		<asp:HyperLink NavigateUrl="~/about.html" runat="server">
+		<asp:HyperLink NavigateUrl="~/UserPage/about.aspx" runat="server">
             <div class="icon"></div>About
         </asp:HyperLink>
 	</li>
 	<li class="nav-contact">
-		<asp:HyperLink NavigateUrl="~/contact.html" runat="server">
+		<asp:HyperLink NavigateUrl="~/UserPage/contact.aspx" runat="server">
             <div class="icon"></div>Contact
         </asp:HyperLink>
 	</li>

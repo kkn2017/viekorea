@@ -43,18 +43,20 @@ file: ucSlideOrMenu.ascx--%>
     else
     {
 %>
-        <asp:ListView ID="lstCategories" runat="server">
-            <ItemTemplate>
-                <ul class="cuisines">
-					<li class="cuisine">
-                        <asp:HyperLink 
-                            NavigateUrl='<%# Eval("id","~/UserPage/Products.aspx?categoryId={0}") %>'
-                            Text='<%# Eval("name") %>'
-                            runat="server" />
-					</li>
-				</ul>
-            </ItemTemplate>
-        </asp:ListView>
+        <h2 style=" margin: 0px; ">
+            <asp:ListView ID="lstCategories" runat="server">
+                <ItemTemplate>
+                    <ul class="cuisines">
+		    			<li class="cuisine">
+                            <asp:HyperLink 
+                                NavigateUrl='<%# Eval("id","~/UserPage/Products.aspx?categoryId={0}") %>'
+                                Text='<%# Eval("name") %>'
+                                runat="server" />
+		    			</li>
+		    		</ul>
+                </ItemTemplate>
+            </asp:ListView>
+        </h2>
 <%
     }
 %>

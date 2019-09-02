@@ -51,7 +51,7 @@ file: Site.Master--%>
                 </asp:ContentPlaceHolder>
 			</div>
 			<div class="details module">
-				<div class="address">450 Central Park</div>
+				<div class="address">1111 Central Park</div>
 				<div>Open 7 Days</div>				
 				<div class="time">11 am - 9 pm</div>
 			</div>				

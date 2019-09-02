@@ -24,13 +24,13 @@ file: account.aspx--%>
         if (section == "Privacy")
         {
     %>
-    <asp:DetailsView ID="detPrivacy" runat="server" AutoGenerateRows="False" 
-        Style=" border: 2px solid #b08101; margin: -10px auto 10px; width: auto; " CellPadding="10" >
+    <asp:DetailsView ID="detPrivacy" runat="server" AutoGenerateRows="False" Visible="true"
+        Style=" border: 2px solid #b08101; margin: 20px auto 10px; width: auto; " CellPadding="10" >
         <Fields>
             <asp:TemplateField HeaderText="User Name">
                 <ItemTemplate>
-                    <asp:TextBox ID="txtUserName" runat="server" 
-                        Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; "></asp:TextBox>
+                    <asp:TextBox ID="txtUserName" runat="server" Text='<%# Eval("userName") %>'
+                        Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; " ></asp:TextBox>
                     <asp:RequiredFieldValidator ID="reqUserName" runat="server" CssClass="val"
                        ErrorMessage="User name is required"
                        ToolTip="User name is required"
@@ -43,7 +43,7 @@ file: account.aspx--%>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="First Name">
                 <ItemTemplate>
-                    <asp:TextBox ID="txtFirstName" runat="server" Text='<%# Eval("firstName") %>' ReadOnly="true"
+                    <asp:TextBox ID="txtFirstName" runat="server" Text='<%# Eval("firstName") %>'
                         Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; "></asp:TextBox>
                     <asp:RequiredFieldValidator ID="reqFirstName" runat="server" CssClass="val"
                       ErrorMessage="First name is required"
@@ -57,7 +57,7 @@ file: account.aspx--%>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Last Name">
                 <ItemTemplate>
-                    <asp:TextBox ID="txtLastName" runat="server" Text='<%# Eval("lastName") %>' ReadOnly="true"
+                    <asp:TextBox ID="txtLastName" runat="server" Text='<%# Eval("lastName") %>'
                         Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; "></asp:TextBox>
                     <asp:RequiredFieldValidator ID="reqLastName" runat="server" CssClass="val"
                        ErrorMessage="Last name is required"
@@ -69,7 +69,50 @@ file: account.aspx--%>
                 </ItemTemplate>
                 <HeaderStyle CssClass="view" />
             </asp:TemplateField>
-
+            <asp:TemplateField HeaderText="Email Address">
+                <ItemTemplate>
+                <asp:TextBox ID="txtEmailAddress" runat="server" Text='<%# Eval("email") %>'
+                        Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; " />
+                <asp:RequiredFieldValidator ID="reqEmailAdress" runat="server" ValidationGroup="Group"
+                    ErrorMessage="Email address required"
+                    ToolTip="Email address is required"
+                    data-toggle="tooltip"
+                    data-placement="right"
+                    ControlToValidate="txtEmailAddress"
+                    Display="Dynamic" 
+                    ForeColor="Red"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="regEmailAddress" runat="server" ValidationGroup="Group"
+                    ErrorMessage="Email is not in valid format" 
+                    ToolTip="Email is not in valid format"
+                    ControlToValidate="txtEmailAddress"
+                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                    Display="Dynamic" 
+                    ForeColor="Red"></asp:RegularExpressionValidator>
+                </ItemTemplate>
+                <HeaderStyle CssClass="view" />
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Birthday">
+                <ItemTemplate>
+                    <asp:TextBox ID="txtBirthday" runat="server" Text='<%# Eval("birthday", "{0:MM-dd-yyyy}") %>'
+                         Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; "/>
+                    <asp:RequiredFieldValidator ID="reqBirthday" runat="server" ValidationGroup="Group"
+                        ErrorMessage="Birthday required"
+                        ToolTip="Birthday is required"
+                        data-toggle="tooltip"
+                        data-placement="right"
+                        ControlToValidate="txtBirthday"
+                        Display="Dynamic" 
+                        ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="regBirthday" runat="server" ValidationGroup="Group"
+                        ErrorMessage="Birthday is not in valid format" 
+                        ToolTip="Birthday is not in valid format"
+                        ControlToValidate="txtBirthday"
+                        ValidationExpression="((0[1-9]|1[0-2])\/((0|1)[0-9]|2[0-9]|3[0-1])\/((19|20)\d\d))$"
+                        Display="Dynamic"
+                        ForeColor="red"></asp:RegularExpressionValidator>
+                </ItemTemplate>
+                <HeaderStyle CssClass="view" />
+            </asp:TemplateField>
             <asp:TemplateField HeaderText="Street">
                 <ItemTemplate>
                     <asp:TextBox ID="txtStreet" runat="server" Text='<%# Eval("street") %>' 
@@ -165,6 +208,13 @@ file: account.aspx--%>
             </asp:TemplateField>
         </Fields> 
     </asp:DetailsView>
+    <asp:Button ID="btnUpdatePersonalInfo" CssClass="button" runat="server" Text="Update" Visible="true" OnClick="btnUpdatePersonalInfo_Click"
+        Style=" margin: 3px; width: auto; " />
+    <div ID="divUpdatedPersonalInfo" runat="server" visible="false" style=" color: black; font-weight: bold; margin-top: 20px; ">
+        Successfully Updated Your Information.
+    </div>
+    <asp:Button ID="btnBackToPrivacy" CssClass="button" runat="server" Text="Back" Visible="false" OnClick="btnBackToPrivacy_Click"
+        Style=" margin: 5px; width: auto; " />
     <%
         }
         else if (section == "OrderHistory")
@@ -199,7 +249,7 @@ file: account.aspx--%>
             <RowStyle BackColor="White" BorderStyle="Solid" BorderColor="#b08101" ForeColor="Black" />
         </asp:GridView>
     </div>
-    <asp:Button ID="btnDeleteOrdHistory" CssClass="button" runat="server" Text="Update Cart" OnClick="btnDeleteOrdHistory_Click" 
+    <asp:Button ID="btnDeleteOrdHistory" CssClass="button" runat="server" Text="Delete" OnClick="btnDeleteOrdHistory_Click" 
         Style=" margin: 3px; width: auto; " />
     <asp:GridView ID="grdOrderDetails" AutoGenerateColumns="False"  runat="server" Visible="False" 
         Style="border: 1.5px solid #b08101; margin: auto; padding: 0; width:80%; ">

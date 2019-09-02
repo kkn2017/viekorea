@@ -1246,15 +1246,12 @@ CREATE  PROCEDURE [dbo].[UpdateCustomer]
 @FirstName NVARCHAR(50),
 @LastName NVARCHAR(50),
 @Email NVARCHAR(50),
+@Birth DATE,
 @Street NVARCHAR(50),
 @City NVARCHAR(20),
 @Province NVARCHAR(2),
 @PostalCode NVARCHAR(6),
-@Phone NVARCHAR(10),
-@Password NVARCHAR(15),
-@Birth DATE,
-@Archived BIT,
-@Validated BIT
+@Phone NVARCHAR(10)
 AS
 BEGIN
 	UPDATE Customers
@@ -1263,15 +1260,12 @@ BEGIN
 	firstName = @FirstName,
 	lastName = @LastName,
 	email = @Email,
+	birthday = @Birth,
 	street = @Street,
 	city = @City,
 	province = @Province,
 	postalCode = @PostalCode,
-	phone = @Phone,
-	[password] = @Password,
-	birthday = @Birth,
-	archived = @Archived,
-	validated = @Validated
+	phone = @Phone
 	WHERE id = @Id
 END
 

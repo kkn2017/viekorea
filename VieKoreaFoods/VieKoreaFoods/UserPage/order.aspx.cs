@@ -76,8 +76,6 @@ namespace VieKoreaFoods.UserPage
                 SendEmail(userName, orderNumber);
                 this.ConfirmedOrder = true;
                 Response.Cookies["CartUId"].Expires = DateTime.Now.AddDays(-1);
-
-                //Response.Redirect($"{HttpContext.Current.Request.Url.ToString()}");
             }
             catch (Exception ex)
             {
