@@ -13,7 +13,7 @@ file: index.aspx--%>
     <uc1:ucNavigation runat="server" ID="ucNavigation" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <uc1:ucSlideOrMenu runat="server" ID="ucSlideOrMenu" IsIndex="true" />
+    <uc1:ucSlideOrMenu runat="server" ID="ucSlideOrMenu" IsIndex="true" IsAdmin="false" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
     <uc1:ucProducts runat="server" ID="ucProducts" Featured="true" />

@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VieKoreaFoods.ActiveServerPageExtended {
+namespace VieKoreaFoods.Admin {
     
     
-    public partial class products {
+    public partial class admin_main {
         
         /// <summary>
         /// ucNavigation control.
@@ -29,15 +29,6 @@ namespace VieKoreaFoods.ActiveServerPageExtended {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::VieKoreaFoods.UserControl.ucSlideOrMenu ucSlideOrMenu;
-        
-        /// <summary>
-        /// ucProducts control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::VieKoreaFoods.UserControl.ucProducts ucProducts;
         
         /// <summary>
         /// ucLogin control.

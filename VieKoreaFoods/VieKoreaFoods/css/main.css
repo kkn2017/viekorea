@@ -286,8 +286,11 @@ h2 {
     overflow: hidden;
     text-align: center;
 }
+.slide_show .admin_menu {
+    margin: auto 50px;
+}
 .slide_show .cuisines {
-	list-style: none;
+    list-style: none;
     display: inline-block;
     margin: 0;
 }
@@ -498,6 +501,10 @@ td {text-align: left;}
     .slide_show .slide {
         display: none;
     }
+    .slide_show .admin_menu {
+        margin: auto 7px;
+        font-size: 13px;
+    }
     .slide_show .cuisines {
         padding: 5px;
     }
@@ -598,6 +605,10 @@ td {text-align: left;}
 	header .search {
 		margin-top: 30px;
 	}
+    .slide_show .admin_menu {
+        margin: auto;
+        font-size: 16px;
+    }
     .fe_foods .accountLink {
         display: inline-block;    
     }
@@ -614,6 +625,9 @@ td {text-align: left;}
 		float: right;
 		width: calc(50% - 40px);
 	}
+    .slide_show .admin_menu {
+        margin: auto 20px;
+    }
 }
 @media (min-width: 650px) and (max-width: 739px) {
 	.slide_show .cuisines {

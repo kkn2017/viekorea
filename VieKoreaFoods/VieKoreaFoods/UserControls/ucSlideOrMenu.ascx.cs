@@ -10,6 +10,7 @@ namespace VieKoreaFoods.UserControl
     public partial class ucSlideOrMenu : System.Web.UI.UserControl
     {
         public bool IsIndex { get; set; }
+        public bool IsAdmin { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)

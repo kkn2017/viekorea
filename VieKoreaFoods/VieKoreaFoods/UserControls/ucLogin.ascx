@@ -24,12 +24,19 @@ file: ucLogin.ascx--%>
         <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
     </LayoutTemplate>
 </asp:Login>
+<div ID="divLoginStatus" class="loginStatus" visible="false" runat="server">
+    <asp:Label ID="lblLoginName" CssClass="loginName" Text="" runat="server" />
+    <div ID="divAccount" runat="server" style=" text-align: center; margin: 10px auto; " visible="false">
+        <a href="../UserPage/account.aspx" style=" color: white; ">My Account</a>
+    </div>
+    <asp:Button ID="btnLogout" CssClass="button" runat="server" CommandName="Logout" Text="Logout" OnClick="LogoutButton_Click" />
+</div>
 <%
     }
     else
     {
 %>
-<asp:Login ID="Login1" runat="server" CssClass="form" FailureText="Fail to Login." OnAuthenticate="Login_Authenticate">
+<asp:Login ID="Admin_Login" runat="server" CssClass="form" FailureText="Fail to Login." OnAuthenticate="Admin_Login_Authenticate">
     <LayoutTemplate>
         <div>
             <asp:TextBox ID="UserName" CssClass="your_name" placeholder="Your Account" runat="server"></asp:TextBox>
@@ -44,13 +51,11 @@ file: ucLogin.ascx--%>
         <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
     </LayoutTemplate>
 </asp:Login>
+<div ID="divAdmin_loginStatus" class="loginStatus" visible="false" runat="server">
+    <asp:Label ID="lblAdmin_LoginName" CssClass="loginName" Text="" runat="server" />
+    <asp:Button ID="btnAdmin_Logout" CssClass="button" runat="server" CommandName="Logout" Text="Logout" OnClick="Admin_LogoutButton_Click" />
+</div>
 <%
     }
 %>
-<div class="loginStatus">
-    <asp:Label ID="lblLoginName" CssClass="loginName" Text="" runat="server" />
-    <div ID="divAccount" runat="server" style=" text-align: center; margin: 10px auto; ">
-        <a href="../UserPage/account.aspx" style=" color: white; ">My Account</a>
-    </div>
-    <asp:Button ID="btnLogout" CssClass="button" runat="server" CommandName="Logout" Text="Logout" OnClick="LogoutButton_Click" />
-</div>
+

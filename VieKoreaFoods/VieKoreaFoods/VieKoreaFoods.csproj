@@ -67,7 +67,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\admin_images.aspx" />
     <Content Include="Admin\admin_login.aspx" />
+    <Content Include="Admin\admin_main.aspx" />
+    <Content Include="Admin\admin_maintenance.aspx" />
     <Content Include="img\about.png" />
     <Content Include="UserControls\ucCart.ascx" />
     <Content Include="UserControls\ucLogin.ascx" />
@@ -115,12 +118,33 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\admin_images.aspx.cs">
+      <DependentUpon>admin_images.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\admin_images.aspx.designer.cs">
+      <DependentUpon>admin_images.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\admin_login.aspx.cs">
       <DependentUpon>admin_login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin\admin_login.aspx.designer.cs">
       <DependentUpon>admin_login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\admin_main.aspx.cs">
+      <DependentUpon>admin_main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\admin_main.aspx.designer.cs">
+      <DependentUpon>admin_main.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\admin_maintenance.aspx.cs">
+      <DependentUpon>admin_maintenance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\admin_maintenance.aspx.designer.cs">
+      <DependentUpon>admin_maintenance.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ucCart.ascx.cs">
       <DependentUpon>ucCart.ascx</DependentUpon>

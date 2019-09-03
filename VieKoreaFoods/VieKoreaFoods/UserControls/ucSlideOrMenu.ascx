@@ -5,7 +5,7 @@ file: ucSlideOrMenu.ascx--%>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucSlideOrMenu.ascx.cs" Inherits="VieKoreaFoods.UserControl.ucSlideOrMenu" %>
 
 <% 
-    if (IsIndex == true)
+    if (IsIndex == true && IsAdmin == false)
     {
 %>
         <ul class="slides">
@@ -40,7 +40,7 @@ file: ucSlideOrMenu.ascx--%>
         </ul>
 <% 
     }
-    else
+    else if (IsIndex == false && IsAdmin == false)
     {
 %>
         <h2 style=" margin: 0px; ">
@@ -56,6 +56,16 @@ file: ucSlideOrMenu.ascx--%>
 		    		</ul>
                 </ItemTemplate>
             </asp:ListView>
+        </h2>
+<%
+    }
+    else if (IsIndex == false && IsAdmin == true)
+    {
+%>
+        <h2 style=" color: white; margin: 0px; ">
+            <asp:HyperLink CssClass="admin_menu" NavigateUrl="~/Admin/admin_maintenance.aspx?returnCategory=foods" runat="server" Text="Foods" />&nbsp;&nbsp;|&nbsp;&nbsp;
+            <asp:HyperLink CssClass="admin_menu" NavigateUrl="~/Admin/admin_maintenance.aspx?returnCategory=customers" runat="server" Text="Customers" />&nbsp;&nbsp;|&nbsp;&nbsp;
+            <asp:HyperLink CssClass="admin_menu" NavigateUrl="~/Admin/admin_images.aspx" runat="server" Text="Images" />
         </h2>
 <%
     }

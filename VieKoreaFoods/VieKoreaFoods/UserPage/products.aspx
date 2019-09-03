@@ -14,7 +14,7 @@ file: products.aspx--%>
     <uc1:ucNavigation runat="server" ID="ucNavigation" />
 </asp:Content>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <uc1:ucSlideOrMenu runat="server" ID="ucSlideOrMenu" IsIndex="false" />
+    <uc1:ucSlideOrMenu runat="server" ID="ucSlideOrMenu" IsIndex="false" IsAdmin="false" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
     <uc1:ucProducts runat="server" ID="ucProducts" Featured="false" />

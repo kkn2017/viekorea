@@ -12,60 +12,85 @@ namespace VieKoreaFoods.UserControls
     {
         public bool IsAdmin { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            if (Session["authenticated"] == null)
+            if(this.IsAdmin == false)
             {
-                this.btnLogout.Visible = false;
-                this.lblLoginName.Visible = false;
-                this.divAccount.Visible = false;
-                this.Login.Visible = true;
+                if (Session["authenticated"] != null)
+                {
+                    this.divLoginStatus.Visible = true;
+                    this.lblLoginName.Text = "Welcome, " + Session["authenticatedUser"].ToString();
+                    this.Login.Visible = false;
+                }
             }
             else
             {
-                this.btnLogout.Visible = true;
-                this.lblLoginName.Text = "Welcome, " + Session["authenticatedUser"].ToString();
-                this.lblLoginName.Visible = true;
-                this.divAccount.Visible = true;
-                this.Login.Visible = false;
-            }
+                if (Session["authenticated"] != null)
+                {
+                    this.divAccount.Visible = false;
+                    this.divAdmin_loginStatus.Visible = true;
+                    this.lblAdmin_LoginName.Text = "Welcome, " + Session["authenticatedUser"].ToString();
+                    this.Admin_Login.Visible = false;                
+                }
+            }           
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Login_Authenticate(object sender, AuthenticateEventArgs e)
         {
             e.Authenticated = false;
-            string loginUser = Login.UserName;
-            string loginPassword = Login.Password;
+            string loginUser = this.Login.UserName.ToString();
+            string loginPassword = this.Login.Password.ToString();
 
-            if (IsAdmin == false)
+            e.Authenticated = AuthenticateUser(loginUser, loginPassword);
+
+            if (e.Authenticated)
             {
-                e.Authenticated = AuthenticateUser(loginUser, loginPassword);
-
-                if (e.Authenticated)
+                if (Request.QueryString["returnurl"] != null)
                 {
-                    if (Request.QueryString["returnurl"] != null)
-                    {
-                        Response.Redirect($"~/{Request.QueryString["returnurl"]}");
-                    }
-                    else
-                    {
-                        Response.Redirect($"{HttpContext.Current.Request.Url.ToString()}");
-                    }
+                    Response.Redirect($"~/{Request.QueryString["returnurl"]}");
                 }
-            }
-            else
-            {
-                e.Authenticated = AuthenticateAdmin(loginUser, loginPassword);
-
-                if (e.Authenticated)
+                else
                 {
-                    Response.Redirect("~/admin/AdminDashboard.aspx");
+                    Response.Redirect($"{HttpContext.Current.Request.Url.ToString()}");
                 }
-            }
-            
+            }            
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Admin_Login_Authenticate(object sender, AuthenticateEventArgs e)
+        {
+            e.Authenticated = false;
+            string loginUser = this.Admin_Login.UserName.ToString();
+            string loginPassword = this.Admin_Login.Password.ToString();
+
+            e.Authenticated = AuthenticateAdmin(loginUser, loginPassword);
+
+            if (e.Authenticated)
+            {
+                Response.Redirect("~/admin/admin_main.aspx");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         private bool AuthenticateAdmin(string userName, string password)
         {
             bool isTrue = false;
@@ -99,6 +124,12 @@ namespace VieKoreaFoods.UserControls
             return isTrue;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         private bool AuthenticateUser(string userName, string password)
         {
             bool isTrue = false;
@@ -144,6 +175,11 @@ namespace VieKoreaFoods.UserControls
             return isTrue;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         private bool IsValidated(string userName)
         {
             bool isValidated = false;
@@ -158,6 +194,11 @@ namespace VieKoreaFoods.UserControls
             return isValidated;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
         private bool IsArchived(string userName)
         {
             bool isArchived = false;
@@ -172,16 +213,36 @@ namespace VieKoreaFoods.UserControls
             return isArchived;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void LogoutButton_Click(object sender, EventArgs e)
         {
             Session["authenticated"] = null;
             Session["authenticatedUser"] = null;
             Session["validatedUser"] = null;
+
+            this.divLoginStatus.Visible = false;
+            this.Login.Visible = true;
+
+            Response.Redirect("~/UserPage/index.aspx");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Admin_LogoutButton_Click(object sender, EventArgs e)
+        {
+            Session["authenticated"] = null;
+            Session["authenticatedUser"] = null;
             Session["admin"] = null;
 
-            this.btnLogout.Visible = false;
-            this.lblLoginName.Visible = false;
-            this.Login.Visible = true;
+            this.divAdmin_loginStatus.Visible = false;
+            this.Admin_Login.Visible = true;
 
             Response.Redirect("~/UserPage/index.aspx");
         }

@@ -22,13 +22,13 @@ namespace VieKoreaFoods.UserControls {
         protected global::System.Web.UI.WebControls.Login Login;
         
         /// <summary>
-        /// Login1 control.
+        /// divLoginStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Login Login1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLoginStatus;
         
         /// <summary>
         /// lblLoginName control.
@@ -56,5 +56,41 @@ namespace VieKoreaFoods.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnLogout;
+        
+        /// <summary>
+        /// Admin_Login control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Login Admin_Login;
+        
+        /// <summary>
+        /// divAdmin_loginStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divAdmin_loginStatus;
+        
+        /// <summary>
+        /// lblAdmin_LoginName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAdmin_LoginName;
+        
+        /// <summary>
+        /// btnAdmin_Logout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdmin_Logout;
     }
 }

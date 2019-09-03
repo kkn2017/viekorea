@@ -1283,7 +1283,7 @@ AS
 BEGIN
 	SELECT * FROM Customers
 	WHERE
-	(userName = @UserName OR id = @CustomerId OR userName = NULL OR id = NULL)
+	(@CustomerId IS NULL OR userName = @UserName OR id = @CustomerId)
 END
 
 /****** Object:  StoredProcedure [dbo].[Validation] ******/
