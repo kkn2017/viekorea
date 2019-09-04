@@ -85,7 +85,7 @@ namespace VieKoreaFoods.UserPage
             string firstName = txtFirstName.Text.Trim();
             string lastName = txtLastName.Text.Trim();
             string emailAddress = txtEmailAddress.Text.Trim();
-            DateTime birthday = DateTime.Parse(txtBirthday.Text.Trim());
+            DateTime birthday = Convert.ToDateTime(txtBirthday.Text.Trim());
             string street = txtStreet.Text.Trim();
             string city = txtCity.Text.Trim();
             string province = txtProvince.Text.Trim();
@@ -119,16 +119,16 @@ namespace VieKoreaFoods.UserPage
                 prms.Add(new SqlParameter() { ParameterName = "@Phone", SqlDbType = SqlDbType.NVarChar, Size = 10, Value = phone });
 
                 DBHelper.NonQuery("UpdateCustomer", prms.ToArray());
+
+                this.detPrivacy.Visible = false;
+                this.btnUpdatePersonalInfo.Visible = false;
+                this.divUpdatedPersonalInfo.Visible = true;
+                this.btnBackToPrivacy.Visible = true;
             }
             catch (SqlException ex)
             {
                 this.lblError.Text = ex.Message;
-            }
-
-            this.detPrivacy.Visible = false;
-            this.btnUpdatePersonalInfo.Visible = false;
-            this.divUpdatedPersonalInfo.Visible = true;
-            this.btnBackToPrivacy.Visible = true;            
+            }          
         }
 
         /// <summary>

@@ -681,7 +681,7 @@ namespace VieKoreaFoods
         {
             return new SqlParameter()
             {
-                ParameterName = "@Archived",
+                ParameterName = "@Archieved",
                 SqlDbType = SqlDbType.Bit,
                 Value = value
             };

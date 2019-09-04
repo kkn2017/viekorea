@@ -199,58 +199,66 @@ file: admin_maintenance.ascx--%>
                 <asp:TemplateField HeaderText="User Name">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtUserName" runat="server" Text='<%# Eval("userName") %>'
-                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
+                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 70px; "></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblUserName" runat="server" Text='<%# Eval("userName") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtUserNameNew" runat="server" 
-                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
+                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 70px; "></asp:TextBox>
                     </FooterTemplate>
                     <HeaderStyle CssClass="view" />
+                    <ItemStyle CssClass="view" />
+                    <FooterStyle CssClass="view" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="First Name">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtFirstName" runat="server" Text='<%# Eval("firstname") %>'
-                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
+                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 70px; "></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("firstname") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtFirstNameNew" runat="server"
-                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
+                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 70px; "></asp:TextBox>
                     </FooterTemplate>
                     <HeaderStyle CssClass="view" />
+                    <ItemStyle CssClass="view" />
+                    <FooterStyle CssClass="view" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Last Name">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtLastName" runat="server" Text='<%# Eval("lastName") %>'
-                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
+                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 70px; "></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblLastName" runat="server" Text='<%# Eval("lastName") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtLastNameNew" runat="server"
-                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
+                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 70px; "></asp:TextBox>
                     </FooterTemplate>
                     <HeaderStyle CssClass="view" />
+                    <ItemStyle CssClass="view" />
+                    <FooterStyle CssClass="view" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Email">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtEmail" runat="server" Text='<%# Eval("email") %>'
-                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
+                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 120px; "></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("email") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtEmailNew" runat="server"
-                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
+                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 120px; "></asp:TextBox>
                     </FooterTemplate>
                     <HeaderStyle CssClass="view" />
+                    <ItemStyle CssClass="view" />
+                    <FooterStyle CssClass="view" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Street">
                     <EditItemTemplate>
@@ -265,6 +273,8 @@ file: admin_maintenance.ascx--%>
                             Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
                     </FooterTemplate>
                     <HeaderStyle CssClass="view" />
+                    <ItemStyle CssClass="view" />
+                    <FooterStyle CssClass="view" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="City">
                     <EditItemTemplate>
@@ -279,22 +289,26 @@ file: admin_maintenance.ascx--%>
                             Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
                     </FooterTemplate>
                     <HeaderStyle CssClass="view" />
+                    <ItemStyle CssClass="view" />
+                    <FooterStyle CssClass="view" />
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Province">
+                <asp:TemplateField HeaderText="PR">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtProvince" runat="server" Text='<%# Eval("province") %>'
-                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
+                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 30px; "></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
                         <asp:Label ID="lblProvince" runat="server" Text='<%# Eval("province") %>'></asp:Label>
                     </ItemTemplate>
                     <FooterTemplate>
                         <asp:TextBox ID="txtProvinceNew" runat="server"
-                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
+                            Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 30px; "></asp:TextBox>
                     </FooterTemplate>
                     <HeaderStyle CssClass="view" />
+                    <ItemStyle CssClass="view" />
+                    <FooterStyle CssClass="view" />
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="Postal Code">
+                <asp:TemplateField HeaderText="PC">
                     <EditItemTemplate>
                         <asp:TextBox ID="txtPostalCode" runat="server" Text='<%# Eval("postalCode") %>'
                             Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
@@ -307,6 +321,8 @@ file: admin_maintenance.ascx--%>
                             Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
                     </FooterTemplate>
                     <HeaderStyle CssClass="view" />
+                    <ItemStyle CssClass="view" />
+                    <FooterStyle CssClass="view" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Phone Number">
                     <EditItemTemplate>
@@ -321,6 +337,8 @@ file: admin_maintenance.ascx--%>
                             Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
                     </FooterTemplate>
                     <HeaderStyle CssClass="view" />
+                    <ItemStyle CssClass="view" />
+                    <FooterStyle CssClass="view" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Password">
                     <EditItemTemplate>
@@ -335,6 +353,8 @@ file: admin_maintenance.ascx--%>
                             Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
                     </FooterTemplate>
                     <HeaderStyle CssClass="view" />
+                    <ItemStyle CssClass="view" />
+                    <FooterStyle CssClass="view" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Birthday">
                     <EditItemTemplate>
@@ -349,6 +369,8 @@ file: admin_maintenance.ascx--%>
                             Style=" background-color: white; border: 1px solid #b08101; color: black; margin: auto; width: 90px; "></asp:TextBox>
                     </FooterTemplate>
                     <HeaderStyle CssClass="view" />
+                    <ItemStyle CssClass="view" />
+                    <FooterStyle CssClass="view" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Archived">
                     <EditItemTemplate>

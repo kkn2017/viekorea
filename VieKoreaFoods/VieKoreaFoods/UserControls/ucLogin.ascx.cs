@@ -23,6 +23,7 @@ namespace VieKoreaFoods.UserControls
             {
                 if (Session["authenticated"] != null)
                 {
+                    this.divAccount.Visible = true;
                     this.divLoginStatus.Visible = true;
                     this.lblLoginName.Text = "Welcome, " + Session["authenticatedUser"].ToString();
                     this.Login.Visible = false;

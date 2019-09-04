@@ -102,7 +102,6 @@ namespace VieKoreaFoods.Admin
         {
             if (e.CommandName == "btnNew")
             {
-                //New product
                 AddNewFood();
                 LoadFoodsGridView();
             }
@@ -138,7 +137,7 @@ namespace VieKoreaFoods.Admin
                 bool featured = chkFeatured.Checked;
                 int statusId = ddlStatus.SelectedIndex > 0 ? Convert.ToInt32(ddlStatus.SelectedValue) : 0;
                 string fileName = $"{ Server.MapPath("~/img/")}{ uplImage.FileName}";
-                string imageName = $"images/{ uplImage.FileName }";
+                string imageName = $"~/img/{ uplImage.FileName }";
                 string altText = uplImage.FileName;
                 int categoryId = ddlCategories.SelectedIndex > 0 ? Convert.ToInt32(ddlCategories.SelectedValue) : 0;
                 bool status = false;              
@@ -186,8 +185,6 @@ namespace VieKoreaFoods.Admin
                 });
 
                 int id = DBHelper.Insert<int>("InsertProduct", "@Id", prms.ToArray());
-
-                Response.Redirect($"{HttpContext.Current.Request.Url.ToString()}");
                 this.lblMessage.Text = $"Product was created. Id: {id.ToString()}";
             }
             catch(SqlException ex)
@@ -277,16 +274,15 @@ namespace VieKoreaFoods.Admin
                 }
 
                 DBHelper.NonQuery("UpdateProduct", prms.ToArray());
+
+                grdCustomers.EditIndex = -1;
+                LoadFoodsGridView();
+                lblMessage.Text = "Product was updated";
             }
             catch (Exception ex)
             {
                 lblError.Text = ex.Message;
             }
-
-            LoadFoodsGridView();
-
-            Response.Redirect($"{HttpContext.Current.Request.Url.ToString()}");
-            lblMessage.Text = "Product was updated";
         }
 
         /// <summary>
@@ -477,7 +473,7 @@ namespace VieKoreaFoods.Admin
                 DateTime birthday = Convert.ToDateTime(txtBirthday.Text.Trim());
                 string phone = txtPhone.Text.Trim();
                 string password = txtPassword.Text.Trim();
-                bool archieved = chkValidated.Checked;
+                bool archieved = chkArchived.Checked;
                 bool validated = chkValidated.Checked;
 
                 prms.Add(DBHelper.SetCustomerIdParam(customerId));
@@ -492,8 +488,8 @@ namespace VieKoreaFoods.Admin
                 prms.Add(DBHelper.SetCustomerPhoneParam(phone));
                 prms.Add(DBHelper.SetCustomerPasswordParam(password));
                 prms.Add(DBHelper.SetCustomerBirthDayParam(birthday));
-                prms.Add(DBHelper.SetCustomerValidatedParam(archieved));
-                prms.Add(DBHelper.SetCustomerArchivedParam(validated));
+                prms.Add(DBHelper.SetCustomerValidatedParam(validated));
+                prms.Add(DBHelper.SetCustomerArchivedParam(archieved));
 
                 DBHelper.NonQuery("UpdateCustomer", prms.ToArray());
             }
@@ -506,6 +502,7 @@ namespace VieKoreaFoods.Admin
                 lblError.Text = ex.Message;
             }
 
+            grdCustomers.EditIndex = -1;
             DBHelper.DataBindingWithPaging(this.grdCustomers, "SelectCustomers");
             lblMessage.Text = "Customer was updated";
         }

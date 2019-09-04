@@ -468,7 +468,7 @@ CREATE   PROCEDURE [dbo].[InsertCustomer]
 @Phone NVARCHAR(10),
 @Password NVARCHAR(15),
 @Birth DATE,
-@Archived BIT,
+@Archieved BIT,
 @Validated BIT,
 @Id INT OUTPUT
 AS
@@ -485,7 +485,7 @@ ELSE IF EXISTS (SELECT * FROM Customers WHERE email = @Email)
 ELSE	
 	BEGIN
 	INSERT INTO Customers (userName, lastName, firstName, email, street, city, province, postalcode, phone, [password], birthday, archived, validated)
-	VALUES (@username, @lastname, @firstname, @email, @street, @city, @province, @PostalCode, @phone, @Password, @Birth, @Archived, @Validated)
+	VALUES (@username, @lastname, @firstname, @email, @street, @city, @province, @PostalCode, @phone, @Password, @Birth, @Archieved, @Validated)
 
 	SET @Id = @@IDENTITY
 	END
@@ -1251,22 +1251,48 @@ CREATE  PROCEDURE [dbo].[UpdateCustomer]
 @City NVARCHAR(20),
 @Province NVARCHAR(2),
 @PostalCode NVARCHAR(6),
-@Phone NVARCHAR(10)
+@Phone NVARCHAR(10),
+@Password NVARCHAR(15) = NULL,
+@Archieved BIT  = NULL,
+@Validated BIT  = NULL
 AS
 BEGIN
-	UPDATE Customers
-	SET
-	userName = @UserName,
-	firstName = @FirstName,
-	lastName = @LastName,
-	email = @Email,
-	birthday = @Birth,
-	street = @Street,
-	city = @City,
-	province = @Province,
-	postalCode = @PostalCode,
-	phone = @Phone
-	WHERE id = @Id
+
+	IF (@Password IS NULL AND @Archieved IS NULL AND @Validated IS NULL)
+		BEGIN
+			UPDATE Customers
+			SET
+			userName = @UserName,
+			firstName = @FirstName,
+			lastName = @LastName,
+			email = @Email,
+			birthday = @Birth,
+			street = @Street,
+			city = @City,
+			province = @Province,
+			postalCode = @PostalCode,
+			phone = @Phone
+			WHERE id = @Id
+		END
+	ELSE
+		BEGIN
+			UPDATE Customers
+			SET
+			userName = @UserName,
+			firstName = @FirstName,
+			lastName = @LastName,
+			email = @Email,
+			birthday = @Birth,
+			street = @Street,
+			city = @City,
+			province = @Province,
+			postalCode = @PostalCode,
+			phone = @Phone,
+			password  = @Password,
+			archived = @Archieved,
+			validated = @Validated
+			WHERE id = @Id
+		END
 END
 
 
@@ -1283,7 +1309,7 @@ AS
 BEGIN
 	SELECT * FROM Customers
 	WHERE
-	(@CustomerId IS NULL OR userName = @UserName OR id = @CustomerId)
+	((@CustomerId IS NULL AND @UserName IS NULL) OR userName = @UserName OR id = @CustomerId)
 END
 
 /****** Object:  StoredProcedure [dbo].[Validation] ******/
