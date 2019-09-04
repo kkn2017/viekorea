@@ -74,6 +74,7 @@
     <Content Include="img\about.png" />
     <Content Include="UserControls\ucCart.ascx" />
     <Content Include="UserControls\ucLogin.ascx" />
+    <Content Include="UserControls\ucProductsSearch.ascx" />
     <Content Include="UserControls\ucRegister.ascx" />
     <Content Include="UserPage\about.aspx" />
     <Content Include="UserPage\cart.aspx" />
@@ -159,6 +160,13 @@
     </Compile>
     <Compile Include="UserControls\ucLogin.ascx.designer.cs">
       <DependentUpon>ucLogin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucProductsSearch.ascx.cs">
+      <DependentUpon>ucProductsSearch.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucProductsSearch.ascx.designer.cs">
+      <DependentUpon>ucProductsSearch.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ucRegister.ascx.cs">
       <DependentUpon>ucRegister.ascx</DependentUpon>

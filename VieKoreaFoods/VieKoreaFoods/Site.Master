@@ -4,6 +4,9 @@ file: Site.Master--%>
 
 <%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="VieKoreaFoods.Site" %>
 
+<%@ Register Src="~/UserControls/ucProductsSearch.ascx" TagPrefix="uc1" TagName="ucProductsSearch" %>
+
+
 <!DOCTYPE html>
 <html>
 <head runat="server">
@@ -24,10 +27,9 @@ file: Site.Master--%>
 			<a href="../UserPage/cart.aspx" class="cart">
 				<div class="cart_icon"></div>Cart
 			</a>
-			<div class="search">
-				<input type="text" class="search_text" maxlength="20" placeholder="Search Here">
-				<button type="submit" class="button">search</button> 
-			</div>
+            <asp:ContentPlaceHolder runat="server" ID="ContentPlaceHolder5">
+                <uc1:ucProductsSearch runat="server" id="ucProductsSearch" />
+            </asp:ContentPlaceHolder>
 		</div>		
 		<div class="nav module">
             <asp:ContentPlaceHolder runat="server" ID="ContentPlaceHolder1">

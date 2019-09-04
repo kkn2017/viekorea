@@ -66,4 +66,4 @@ file: ucProducts.ascx--%>
     </ItemTemplate>
 </asp:Repeater>
 
-<%--<asp:Label ID="lblError" runat="server" Text="" ForeColor="Red" EnableViewState="false"></asp:Label>--%>
+<asp:Label ID="lblError" runat="server" Text="" ForeColor="Red" EnableViewState="false"></asp:Label>

@@ -423,8 +423,13 @@ td {text-align: left;}
 	}
 	header .cart {
 		display: block;
-		margin: auto calc(20% + 15px);
+		margin: auto 18%;
 	}
+    header .search {
+        display: block;
+        margin-top: 10px;
+        margin-right: 18%;
+    }
 	header .nav .nav-home {
 		display: none;
 	}
@@ -595,7 +600,7 @@ td {text-align: left;}
 }
 @media (min-width: 480px) and (max-width: 550px) {
 	header .logo {
-		margin: auto calc(33% + 10px);
+		margin: auto 30%;
 	}
 	header .cart {
 		margin: auto -90px;
@@ -699,7 +704,7 @@ td {text-align: left;}
 	header .cart {
 		float: left;
 		margin-top: 20px;
-		width: 50%;
+		width: calc(63% + 1px);
 	}
 	header .search {
 		float: right;

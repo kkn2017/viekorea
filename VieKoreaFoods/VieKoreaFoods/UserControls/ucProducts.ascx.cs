@@ -111,7 +111,7 @@ namespace VieKoreaFoods.UserControl
         /// </summary>
         private void ProductCountMessage()
         {
-            //this.lblError.Text = this.rptProducts.Items.Count == 0 ? "No products found" : "";
+            this.lblError.Text = this.rptProducts.Items.Count == 0 ? "No products found" : "";
         }
 
 
@@ -227,18 +227,17 @@ namespace VieKoreaFoods.UserControl
                     }
                     else
                     {
-                        //this.lblError.Text = "Invalid product to add to cart";
+                        this.lblError.Text = "Invalid product to add to cart";
                     }
                 }
             }
             catch (SqlException ex)
-            {
-                //Specific SQL error 
-                //lblError.Text = ex.Message;
+            { 
+                lblError.Text = ex.Message;
             }
             catch (Exception ex)
             {
-                //lblError.Text = ex.Message;
+                lblError.Text = ex.Message;
             }
         }
 
