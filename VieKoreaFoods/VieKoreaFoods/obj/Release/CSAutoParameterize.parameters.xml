@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="cnn-Web.config Connection String" description="cnn Connection String used in web.config by the application to access the database." defaultValue="Data Source=localhost;Initial Catalog=VieKoreaRestaurant;Integrated Security=SSPI;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\KE\ Oh\\작업장\\웹사이트제작\\viekorea\\VieKoreaFoods\\VieKoreaFoods\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='cnn']/@connectionString" />
+  </parameter>
+</parameters>

@@ -228,7 +228,7 @@ namespace VieKoreaFoods.UserControls
             this.divLoginStatus.Visible = false;
             this.Login.Visible = true;
 
-            Response.Redirect("~/UserPage/index.aspx");
+            Response.Redirect("~/default.aspx");
         }
 
         /// <summary>
@@ -245,7 +245,7 @@ namespace VieKoreaFoods.UserControls
             this.divAdmin_loginStatus.Visible = false;
             this.Admin_Login.Visible = true;
 
-            Response.Redirect("~/UserPage/index.aspx");
+            Response.Redirect("~/default.aspx");
         }
     }
 }
