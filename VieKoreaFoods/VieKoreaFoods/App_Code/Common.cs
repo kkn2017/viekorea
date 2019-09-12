@@ -141,5 +141,290 @@ namespace VieKoreaFoods
 
             return cartTotal;
         }
+
+        #region [Common Product SqlParams]
+        public static SqlParameter SetProductIdParam(int value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@ProductId",
+                SqlDbType = SqlDbType.Int,
+                Value = value
+            };
+        }
+        public static SqlParameter SetProductNameParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@ProductName",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 50,
+                Value = value
+            };
+        }
+        public static SqlParameter SetProductBriefDescParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@ProductBriefDesc",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = value
+            };
+        }
+        public static SqlParameter SetProductFullDescParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@ProductFullDesc",
+                SqlDbType = SqlDbType.NVarChar,
+                Value = value
+            };
+        }
+        public static SqlParameter SetProductStatusCodeParam(bool value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@StatusCode",
+                SqlDbType = SqlDbType.Bit,
+                Value = value
+            };
+        }
+        public static SqlParameter SetProductStatusIdParam(int value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@StatusId",
+                SqlDbType = SqlDbType.Int,
+                Value = value
+            };
+        }
+        public static SqlParameter SetProductPriceParam(decimal value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@ProductPrice",
+                SqlDbType = SqlDbType.Money,
+                Value = value
+            };
+        }
+        public static SqlParameter SetProductFeaturedParam(bool value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@Featured",
+                SqlDbType = SqlDbType.Bit,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCategoryIdParam(int value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@CategoryId",
+                SqlDbType = SqlDbType.Int,
+                Value = value
+            };
+        }
+        public static SqlParameter SetProductImageName(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@ImageName",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 50,
+                Value = value
+            };
+        }
+        public static SqlParameter SetProductImageDate(DateTime value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@ImageUploadDate",
+                SqlDbType = SqlDbType.DateTime,
+                Value = value
+            };
+        }
+        public static SqlParameter SetProductImageAlt(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@AltText",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 50,
+                Value = value
+            };
+        }
+        #endregion
+
+        #region [Common Customer SqlParams]
+        public static SqlParameter SetCustomerIdParam(int value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@Id",
+                SqlDbType = SqlDbType.Int,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerUserNameParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@UserName",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 50,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerFirstNameParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@FirstName",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 50,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerLastNameParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@LastName",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 50,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerEmailParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@Email",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 50,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerStreetParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@Street",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 50,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerCityParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@City",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 20,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerProvinceParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@Province",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 2,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerPostalCodeParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@PostalCode",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 6,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerPhoneParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@Phone",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 10,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerPasswordParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@Password",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 15,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerBirthDayParam(DateTime value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@Birth",
+                SqlDbType = SqlDbType.Date,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerValidatedParam(bool value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@Validated",
+                SqlDbType = SqlDbType.Bit,
+                Value = value
+            };
+        }
+        public static SqlParameter SetCustomerArchivedParam(bool value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@Archieved",
+                SqlDbType = SqlDbType.Bit,
+                Value = value
+            };
+        }
+        #endregion
+
+        #region [Common Administrator SqlParams]
+        public static SqlParameter SetAdminIdParam(int value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@Id",
+                SqlDbType = SqlDbType.Int,
+                Value = value
+            };
+        }
+        public static SqlParameter SetAdminUserNameParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@UserName",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 50,
+                Value = value
+            };
+        }
+        public static SqlParameter SetAdminPasswordParam(string value)
+        {
+            return new SqlParameter()
+            {
+                ParameterName = "@Password",
+                SqlDbType = SqlDbType.NVarChar,
+                Size = 15,
+                Value = value
+            };
+        }
+        #endregion
     }
 }

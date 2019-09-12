@@ -165,17 +165,17 @@ namespace VieKoreaFoods.Admin
 
                 uplImage.SaveAs(fileName);
 
-                prms.Add(DBHelper.SetProductNameParam(productName));
-                prms.Add(DBHelper.SetProductBriefDescParam(productBriefDesc));
-                prms.Add(DBHelper.SetProductFullDescParam(productFullDesc));
-                prms.Add(DBHelper.SetProductStatusCodeParam(status));
-                prms.Add(DBHelper.SetProductStatusIdParam(statusId));
-                prms.Add(DBHelper.SetProductPriceParam(price));
-                prms.Add(DBHelper.SetProductFeaturedParam(featured));
-                prms.Add(DBHelper.SetCategoryIdParam(categoryId));
-                prms.Add(DBHelper.SetProductImageName(imageName));
-                prms.Add(DBHelper.SetProductImageDate(DateTime.Now));
-                prms.Add(DBHelper.SetProductImageAlt(altText));
+                prms.Add(Common.SetProductNameParam(productName));
+                prms.Add(Common.SetProductBriefDescParam(productBriefDesc));
+                prms.Add(Common.SetProductFullDescParam(productFullDesc));
+                prms.Add(Common.SetProductStatusCodeParam(status));
+                prms.Add(Common.SetProductStatusIdParam(statusId));
+                prms.Add(Common.SetProductPriceParam(price));
+                prms.Add(Common.SetProductFeaturedParam(featured));
+                prms.Add(Common.SetCategoryIdParam(categoryId));
+                prms.Add(Common.SetProductImageName(imageName));
+                prms.Add(Common.SetProductImageDate(DateTime.Now));
+                prms.Add(Common.SetProductImageAlt(altText));
 
                 prms.Add(new SqlParameter()
                 {
@@ -256,21 +256,21 @@ namespace VieKoreaFoods.Admin
 
                 uplImage.SaveAs(fileName);
 
-                prms.Add(DBHelper.SetProductIdParam(productId));
-                prms.Add(DBHelper.SetProductNameParam(productName));
-                prms.Add(DBHelper.SetProductBriefDescParam(productBriefDesc));
-                prms.Add(DBHelper.SetProductFullDescParam(productFullDesc));
-                prms.Add(DBHelper.SetProductStatusCodeParam(status));
-                prms.Add(DBHelper.SetProductStatusIdParam(statusId));
-                prms.Add(DBHelper.SetProductPriceParam(price));
-                prms.Add(DBHelper.SetProductFeaturedParam(featured));
-                prms.Add(DBHelper.SetCategoryIdParam(categoryId));
+                prms.Add(Common.SetProductIdParam(productId));
+                prms.Add(Common.SetProductNameParam(productName));
+                prms.Add(Common.SetProductBriefDescParam(productBriefDesc));
+                prms.Add(Common.SetProductFullDescParam(productFullDesc));
+                prms.Add(Common.SetProductStatusCodeParam(status));
+                prms.Add(Common.SetProductStatusIdParam(statusId));
+                prms.Add(Common.SetProductPriceParam(price));
+                prms.Add(Common.SetProductFeaturedParam(featured));
+                prms.Add(Common.SetCategoryIdParam(categoryId));
 
                 if (fileName != "") //Don't make changes to the current image
                 {
-                    prms.Add(DBHelper.SetProductImageName(imageName));
-                    prms.Add(DBHelper.SetProductImageDate(DateTime.Now));
-                    prms.Add(DBHelper.SetProductImageAlt(altText));
+                    prms.Add(Common.SetProductImageName(imageName));
+                    prms.Add(Common.SetProductImageDate(DateTime.Now));
+                    prms.Add(Common.SetProductImageAlt(altText));
                 }
 
                 DBHelper.NonQuery("UpdateProduct", prms.ToArray());
@@ -392,19 +392,19 @@ namespace VieKoreaFoods.Admin
 
                 List<SqlParameter> prms = new List<SqlParameter>();
 
-                prms.Add(DBHelper.SetCustomerUserNameParam(userName));
-                prms.Add(DBHelper.SetCustomerFirstNameParam(firstName));
-                prms.Add(DBHelper.SetCustomerLastNameParam(lastname));
-                prms.Add(DBHelper.SetCustomerEmailParam(email));
-                prms.Add(DBHelper.SetCustomerStreetParam(street));
-                prms.Add(DBHelper.SetCustomerCityParam(city));
-                prms.Add(DBHelper.SetCustomerProvinceParam(province));
-                prms.Add(DBHelper.SetCustomerPostalCodeParam(postalCode));
-                prms.Add(DBHelper.SetCustomerPhoneParam(phone));
-                prms.Add(DBHelper.SetCustomerPasswordParam(password));
-                prms.Add(DBHelper.SetCustomerBirthDayParam(birthday));
-                prms.Add(DBHelper.SetCustomerValidatedParam(validated));
-                prms.Add(DBHelper.SetCustomerArchivedParam(archieved));
+                prms.Add(Common.SetCustomerUserNameParam(userName));
+                prms.Add(Common.SetCustomerFirstNameParam(firstName));
+                prms.Add(Common.SetCustomerLastNameParam(lastname));
+                prms.Add(Common.SetCustomerEmailParam(email));
+                prms.Add(Common.SetCustomerStreetParam(street));
+                prms.Add(Common.SetCustomerCityParam(city));
+                prms.Add(Common.SetCustomerProvinceParam(province));
+                prms.Add(Common.SetCustomerPostalCodeParam(postalCode));
+                prms.Add(Common.SetCustomerPhoneParam(phone));
+                prms.Add(Common.SetCustomerPasswordParam(password));
+                prms.Add(Common.SetCustomerBirthDayParam(birthday));
+                prms.Add(Common.SetCustomerValidatedParam(validated));
+                prms.Add(Common.SetCustomerArchivedParam(archieved));
                 prms.Add(new SqlParameter()
                 {
                     ParameterName = "@Id",
@@ -476,20 +476,20 @@ namespace VieKoreaFoods.Admin
                 bool archieved = chkArchived.Checked;
                 bool validated = chkValidated.Checked;
 
-                prms.Add(DBHelper.SetCustomerIdParam(customerId));
-                prms.Add(DBHelper.SetCustomerUserNameParam(userName));
-                prms.Add(DBHelper.SetCustomerFirstNameParam(firstName));
-                prms.Add(DBHelper.SetCustomerLastNameParam(lastname));
-                prms.Add(DBHelper.SetCustomerEmailParam(email));
-                prms.Add(DBHelper.SetCustomerStreetParam(street));
-                prms.Add(DBHelper.SetCustomerCityParam(city));
-                prms.Add(DBHelper.SetCustomerProvinceParam(province));
-                prms.Add(DBHelper.SetCustomerPostalCodeParam(postalCode));
-                prms.Add(DBHelper.SetCustomerPhoneParam(phone));
-                prms.Add(DBHelper.SetCustomerPasswordParam(password));
-                prms.Add(DBHelper.SetCustomerBirthDayParam(birthday));
-                prms.Add(DBHelper.SetCustomerValidatedParam(validated));
-                prms.Add(DBHelper.SetCustomerArchivedParam(archieved));
+                prms.Add(Common.SetCustomerIdParam(customerId));
+                prms.Add(Common.SetCustomerUserNameParam(userName));
+                prms.Add(Common.SetCustomerFirstNameParam(firstName));
+                prms.Add(Common.SetCustomerLastNameParam(lastname));
+                prms.Add(Common.SetCustomerEmailParam(email));
+                prms.Add(Common.SetCustomerStreetParam(street));
+                prms.Add(Common.SetCustomerCityParam(city));
+                prms.Add(Common.SetCustomerProvinceParam(province));
+                prms.Add(Common.SetCustomerPostalCodeParam(postalCode));
+                prms.Add(Common.SetCustomerPhoneParam(phone));
+                prms.Add(Common.SetCustomerPasswordParam(password));
+                prms.Add(Common.SetCustomerBirthDayParam(birthday));
+                prms.Add(Common.SetCustomerValidatedParam(validated));
+                prms.Add(Common.SetCustomerArchivedParam(archieved));
 
                 DBHelper.NonQuery("UpdateCustomer", prms.ToArray());
             }

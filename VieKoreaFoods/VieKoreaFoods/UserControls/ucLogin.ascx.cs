@@ -99,8 +99,8 @@ namespace VieKoreaFoods.UserControls
             {
                 List<SqlParameter> prms = new List<SqlParameter>();
 
-                prms.Add(DBHelper.SetAdminUserNameParam(userName));
-                prms.Add(DBHelper.SetAdminPasswordParam(password));
+                prms.Add(Common.SetAdminUserNameParam(userName));
+                prms.Add(Common.SetAdminPasswordParam(password));
 
                 isTrue = !string.IsNullOrEmpty(DBHelper.GetScalarValue<string>("LoginAdmin", prms.ToArray()));
 
@@ -139,8 +139,8 @@ namespace VieKoreaFoods.UserControls
             {
                 List<SqlParameter> prms = new List<SqlParameter>();
 
-                prms.Add(DBHelper.SetCustomerUserNameParam(userName));
-                prms.Add(DBHelper.SetCustomerPasswordParam(password));
+                prms.Add(Common.SetCustomerUserNameParam(userName));
+                prms.Add(Common.SetCustomerPasswordParam(password));
 
                 isTrue = !string.IsNullOrEmpty(DBHelper.GetScalarValue<string>("Login", prms.ToArray())) && !IsArchived(userName);
 
@@ -187,7 +187,7 @@ namespace VieKoreaFoods.UserControls
 
             List<SqlParameter> prms = new List<SqlParameter>()
             {
-                DBHelper.SetCustomerUserNameParam(userName)
+                Common.SetCustomerUserNameParam(userName)
             };
 
             isValidated = DBHelper.GetScalarValue<bool>("Validation", prms.ToArray());
@@ -206,7 +206,7 @@ namespace VieKoreaFoods.UserControls
 
             List<SqlParameter> prms = new List<SqlParameter>()
             {
-                DBHelper.SetCustomerUserNameParam(userName)
+                Common.SetCustomerUserNameParam(userName)
             };
 
             isArchived = DBHelper.GetScalarValue<bool>("Archive", prms.ToArray());

@@ -88,9 +88,8 @@ header .nav ul li a div {
 	opacity: inherit;
 }
 header .nav ul li a:hover,
-header .nav ul li a:focus,
-header .nav ul li a.active {
-	opacity: 1;
+header .nav ul li a:focus {
+    opacity: 1;
 }
 .form {
     text-align: center;
@@ -593,6 +592,9 @@ td {text-align: left;}
 	}
 	.slide_show .flex-control-nav li a {
 		background: #fcb802;
+	}
+    .slide_show .flex-control-nav li a.flex-active {
+		background: #fff;
 	}
 	footer .copyright .store_name {
 		margin-right: 1px;

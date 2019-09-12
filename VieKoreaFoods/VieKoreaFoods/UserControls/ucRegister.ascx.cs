@@ -136,19 +136,19 @@ namespace VieKoreaFoods.UserControls
             {
                 List<SqlParameter> prms = new List<SqlParameter>();
 
-                prms.Add(DBHelper.SetCustomerUserNameParam(userName));
-                prms.Add(DBHelper.SetCustomerFirstNameParam(firstName));
-                prms.Add(DBHelper.SetCustomerLastNameParam(lastName));
-                prms.Add(DBHelper.SetCustomerEmailParam(emailAddress));
-                prms.Add(DBHelper.SetCustomerStreetParam(street));
-                prms.Add(DBHelper.SetCustomerCityParam(city));
-                prms.Add(DBHelper.SetCustomerProvinceParam(province));
-                prms.Add(DBHelper.SetCustomerPostalCodeParam(postalCode));
-                prms.Add(DBHelper.SetCustomerPhoneParam(phone));
-                prms.Add(DBHelper.SetCustomerPasswordParam(password));
-                prms.Add(DBHelper.SetCustomerBirthDayParam(birthday));
-                prms.Add(DBHelper.SetCustomerArchivedParam(archived));
-                prms.Add(DBHelper.SetCustomerValidatedParam(validated));
+                prms.Add(Common.SetCustomerUserNameParam(userName));
+                prms.Add(Common.SetCustomerFirstNameParam(firstName));
+                prms.Add(Common.SetCustomerLastNameParam(lastName));
+                prms.Add(Common.SetCustomerEmailParam(emailAddress));
+                prms.Add(Common.SetCustomerStreetParam(street));
+                prms.Add(Common.SetCustomerCityParam(city));
+                prms.Add(Common.SetCustomerProvinceParam(province));
+                prms.Add(Common.SetCustomerPostalCodeParam(postalCode));
+                prms.Add(Common.SetCustomerPhoneParam(phone));
+                prms.Add(Common.SetCustomerPasswordParam(password));
+                prms.Add(Common.SetCustomerBirthDayParam(birthday));
+                prms.Add(Common.SetCustomerArchivedParam(archived));
+                prms.Add(Common.SetCustomerValidatedParam(validated));
 
                 prms.Add(new SqlParameter()
                 {

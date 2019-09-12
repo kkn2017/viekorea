@@ -6,7 +6,7 @@ file: ucNavigation.ascx--%>
 
 <ul>
 	<li class="nav-home">
-        <asp:HyperLink cssClass="active" NavigateUrl="~/default.aspx" runat="server">
+        <asp:HyperLink NavigateUrl="~/default.aspx" runat="server">
             <div class="icon"></div>Home
         </asp:HyperLink>
 	</li>
@@ -26,3 +26,4 @@ file: ucNavigation.ascx--%>
         </asp:HyperLink>
 	</li>
 </ul>
+
