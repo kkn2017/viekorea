@@ -11,22 +11,23 @@ namespace VieKoreaFoods
     public class DBHelper
     {
         /// <summary>
-        /// 
+        /// Set the connection string in order to connect to database.
+        /// cnn is the key of the connection strings.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Return cnn as the connection string</returns>
         private static string ConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["cnn"].ConnectionString;
         }
 
         /// <summary>
-        /// Execute scalar query
+        /// Get the scalar value from the database by executing stored procedure.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="sqlStatement"></param>
-        /// <param name="prms"></param>
-        /// <param name="cmdType"></param>
-        /// <returns></returns>
+        /// <typeparam name="T">Generic type</typeparam>
+        /// <param name="sqlStatement">Name of the sql statement you want to call</param>
+        /// <param name="prms">Array of Sql parameters</param>
+        /// <param name="cmdType">Stored Procdedure as command type</param>
+        /// <returns>Get a scalar value</returns>
         public static T GetScalarValue<T>(string sqlStatement, SqlParameter[] prms
             , CommandType cmdType = CommandType.StoredProcedure)
         {
@@ -35,7 +36,7 @@ namespace VieKoreaFoods
 
             using (SqlConnection conn = new SqlConnection(ConnectionString()))
             {
-                //Call SProc from the database
+                // Call StoredProcedure from the database
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
@@ -43,36 +44,44 @@ namespace VieKoreaFoods
                     cmd.CommandType = cmdType;
 
                     if (prms != null)
+                    {
                         cmd.Parameters.AddRange(prms);
+                    }                       
 
                     conn.Open();
 
                     returnValue = cmd.ExecuteScalar();
 
                     if (returnValue == DBNull.Value)
+                    {
                         returnValue = null;
-
+                    }
+                        
                     conn.Close();//Not necessary as connection is within using
                 }
             }
 
             if (returnValue != null)
+            {
                 value = (T)returnValue;
+            }                
             else
+            {
                 value = default(T);
-
+            }
+                
             return value;
         }
 
         /// <summary>
-        /// Get a Single value from a query
+        /// Get a query value from database by calling the stored procedure
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="sqlStatement"></param>
-        /// <param name="ColumnName"></param>
-        /// <param name="prms"></param>
-        /// <param name="cmdType"></param>
-        /// <returns></returns>
+        /// <typeparam name="T">Generic type</typeparam>
+        /// <param name="sqlStatement">Call the name of the sql statement</param>
+        /// <param name="ColumnName">Call the specific column of the table in database</param>
+        /// <param name="prms">Array of the sql parameters</param>
+        /// <param name="cmdType">Command type is stored procedure</param>
+        /// <returns>Returns a query value</returns>
         public static T GetQueryValue<T>(string sqlStatement, string ColumnName
         , SqlParameter[] prms, CommandType cmdType = CommandType.StoredProcedure)
         {
@@ -89,7 +98,9 @@ namespace VieKoreaFoods
                     cmd.CommandType = cmdType;
 
                     if (prms != null)
+                    {
                         cmd.Parameters.AddRange(prms);
+                    }
 
                     conn.Open();
 
@@ -100,36 +111,42 @@ namespace VieKoreaFoods
                             while (dr.Read())
                             {
                                 if (dr[ColumnName] != DBNull.Value)
+                                {
                                     returnValue = dr[ColumnName];
+                                }
                             }
                         }
                     }
 
-                    conn.Close();//Not necessary as connection is within using
+                    conn.Close();
                 }
             }
 
             if (returnValue != null)
+            {
                 value = (T)returnValue;
+            }
             else
+            {
                 value = default(T);
+            }
 
             return value;
         }
 
         /// <summary>
-        /// 
+        /// Get values from the database by calling stored procudure.
+        /// As data type is DataTable, call the values stored to the data table 
         /// </summary>
-        /// <param name="sqlStatement"></param>
-        /// <param name="prms"></param>
-        /// <param name="cmdType"></param>
-        /// <returns></returns>
+        /// <param name="sqlStatement">Name of the sql statement</param>
+        /// <param name="prms">Array of the sql parameters</param>
+        /// <param name="cmdType">Command type is Stored Procedure</param>
+        /// <returns>Returns values from the database</returns>
         public static DataTable GetQuery(string sqlStatement, SqlParameter[] prms, CommandType cmdType = CommandType.StoredProcedure)
         {
             DataTable dt = new DataTable();
             using (SqlConnection conn = new SqlConnection(ConnectionString()))
             {
-                //Call SProc from the database
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = conn;
@@ -137,34 +154,34 @@ namespace VieKoreaFoods
                     cmd.CommandType = cmdType;
 
                     if (prms != null)
+                    {
                         cmd.Parameters.AddRange(prms);
+                    }
 
                     conn.Open();
-
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         if (dr.HasRows)
                         {
                             dt.Load(dr);
                         }
-
-                        conn.Close();//Not necessary as connection is within using
+                        
                     }
+                    conn.Close();
                 }
             }
-
             return dt;
         }
 
         /// <summary>
-        /// Run table scripts and sproc for Guid Table Galleries
+        /// Insert the data into the database by calling the insert stored procedure.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="sqlStatement"></param>
-        /// <param name="OutputParam"></param>
-        /// <param name="prms"></param>
-        /// <param name="cmdType"></param>
-        /// <returns></returns>
+        /// <typeparam name="T">Generic data type</typeparam>
+        /// <param name="sqlStatement">Name of the sql statement</param>
+        /// <param name="OutputParam">Output parameter</param>
+        /// <param name="prms">Array of the parameters</param>
+        /// <param name="cmdType">Command type is Stored Procedure</param>
+        /// <returns>Return the specific value by the output parameter</returns>
         public static T Insert<T>(string sqlStatement, string OutputParam
         , SqlParameter[] prms, CommandType cmdType = CommandType.StoredProcedure)
         {
@@ -181,7 +198,9 @@ namespace VieKoreaFoods
                     cmd.CommandType = cmdType;
 
                     if (prms != null)
+                    {
                         cmd.Parameters.AddRange(prms);
+                    }
 
                     conn.Open();
 
@@ -194,9 +213,13 @@ namespace VieKoreaFoods
             }
 
             if (returnId != null)
+            {
                 id = (T)returnId;
+            }                
             else
+            {
                 id = default(T);
+            }                
 
             return id;
         }
