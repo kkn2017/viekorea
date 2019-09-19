@@ -19,7 +19,6 @@ html {
 	background-attachment: fixed;
 }
 body {
-	border-top: 5px solid red;
 	margin: 0;
 	padding: 25px 15px 5px;
 }
@@ -521,8 +520,7 @@ td {text-align: left;}
 	}
 }
 @media (min-width: 480px){
-	body {
-		border-color: green;	
+	body {	
 		font-family: 'Monda', sans-serif;
 	}
 	.fe_foods {
@@ -646,9 +644,6 @@ td {text-align: left;}
 	}
 }
 @media (min-width: 740px) {
-	body {
-		border-color: red;
-	}
 	header .header_wrapper {
 		display: inline-block;
 	}
@@ -753,7 +748,6 @@ td {text-align: left;}
 }
 @media (min-width: 1024px){
 	body {
-		border-color: blue;
 		margin: auto;
 		max-width: 1280px;
 	}
