@@ -1,13 +1,19 @@
-﻿using System;
+﻿// author: Kwangeun Oh
+// date: 2019.03.05
+// file: ucProducts.ascx.cs
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace VieKoreaFoods.UserControl
 {
+    /// <summary>
+    /// ucProducts Partial Class
+    /// </summary>
     public partial class ucProducts : System.Web.UI.UserControl
     {
         // Boolean property called Featured for checking whether or not it wants featured products.
@@ -78,6 +84,7 @@ namespace VieKoreaFoods.UserControl
                 ProductCountMessage();
             }
         }
+
         /// <summary>
         /// Search the product by typing keywords in the product search box.
         /// </summary>
@@ -213,6 +220,11 @@ namespace VieKoreaFoods.UserControl
             DBHelper.DataBinding(this.rptProducts, "SelectProducts", prms.ToArray());
         }
 
+        /// <summary>
+        /// the item is updated after clicking the update button for adding more items.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="e"></param>
         protected void rptProducts_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             try

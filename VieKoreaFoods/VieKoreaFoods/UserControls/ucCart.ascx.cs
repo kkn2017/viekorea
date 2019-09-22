@@ -1,4 +1,8 @@
-﻿using System;
+﻿// author: Kwangeun Oh
+// date: 2019.03.10
+// file: ucCart.ascx.cs
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -7,6 +11,9 @@ using System.Web.UI.WebControls;
 
 namespace VieKoreaFoods.UserControls
 {
+    /// <summary>
+    /// ucCart Partial Class
+    /// </summary>
     public partial class ucCart : System.Web.UI.UserControl
     {
         public static double tax;
@@ -15,11 +22,17 @@ namespace VieKoreaFoods.UserControls
 
         public bool IsOrderPage { get; set; }
 
+        /// <summary>
+        /// Cart page is loaded.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             string cartId = Common.GetCartId(Request, Response);
             int itemCounts = Common.GetCartCount(cartId);
 
+            // It shows how many item is stored in the cart.
             if (!string.IsNullOrEmpty(cartId))
             {
                 this.lblCartItemsCount.Visible = true;
@@ -34,6 +47,9 @@ namespace VieKoreaFoods.UserControls
             }
         }
 
+        /// <summary>
+        /// Get the cart table.
+        /// </summary>
         private void GetCart()
         {
             if(this.IsOrderPage == false)
@@ -56,6 +72,9 @@ namespace VieKoreaFoods.UserControls
             }
         }
 
+        /// <summary>
+        /// Get the total price of the items in the cart including tax and delivery cost.
+        /// </summary>
         private void GetCartTotal()
         {
             double subTotal = Convert.ToDouble(Common.GetCartTotal(Request, Response));
@@ -105,6 +124,11 @@ namespace VieKoreaFoods.UserControls
             }            
         }
 
+        /// <summary>
+        /// As update button event handler, adding or deleting items are updated in the cart page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnUpdateCart_Click(object sender, EventArgs e)
         {
             string CartUId = Common.GetCartId(Request, Response);
@@ -141,11 +165,22 @@ namespace VieKoreaFoods.UserControls
             Response.Redirect($"{HttpContext.Current.Request.Url.ToString()}");
         }
 
+        /// <summary>
+        /// Go to the product page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnContinueShopping_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/UserPage/products.aspx");
         }
 
+        /// <summary>
+        /// Update the cart item from database.
+        /// </summary>
+        /// <param name="CartUId"></param>
+        /// <param name="productId"></param>
+        /// <param name="qty"></param>
         private void UpdateCartItem(string CartUId, int productId, int qty)
         {
             List<SqlParameter> prms = new List<SqlParameter>();
@@ -172,6 +207,11 @@ namespace VieKoreaFoods.UserControls
             DBHelper.NonQuery("UpdateCart", prms.ToArray());
         }
 
+        /// <summary>
+        /// Go to the next page after clicking the checkout button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnCheckout_Click(object sender, EventArgs e)
         {
             if(Session["Authenticated"] == null || Session["validatedUser"] == null)
@@ -185,6 +225,11 @@ namespace VieKoreaFoods.UserControls
             }
         }
 
+        /// <summary>
+        /// Go back to the cart page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnGoCart_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/UserPage/cart.aspx");

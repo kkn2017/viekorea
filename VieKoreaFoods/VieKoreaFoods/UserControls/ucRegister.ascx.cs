@@ -1,21 +1,24 @@
-﻿using System;
+﻿// author: Kwangeun Oh
+// date: 2019.03.05
+// file: ucRegister.ascx.cs
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Mail;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace VieKoreaFoods.UserControls
 {
+    /// <summary>
+    /// ucRegister Partial Class
+    /// </summary>
     public partial class ucRegister : System.Web.UI.UserControl
     {
         /// <summary>
-        /// 
+        /// Page is loaded.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -26,7 +29,7 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// New Account which is registered is registered and stored into database
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -50,6 +53,7 @@ namespace VieKoreaFoods.UserControls
                     bool archived = false;
                     bool validated = false;
 
+                    // User age must be over nineteen.
                     if (!IsUnderNineteen(birthday))
                     {
 
@@ -102,7 +106,7 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// Check whether or not the age is over nineteen.
         /// </summary>
         /// <param name="birthday"></param>
         /// <returns></returns>
@@ -113,7 +117,7 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// Insert the new account into database
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="firstName"></param>
@@ -128,7 +132,7 @@ namespace VieKoreaFoods.UserControls
         /// <param name="birthday"></param>
         /// <param name="archived"></param>
         /// <param name="validated"></param>
-        /// <returns></returns>
+        /// <returns>returns new account id number.</returns>
         private int CreateAccount(string userName, string firstName, string lastName, string emailAddress, string street, string city, string province, string postalCode, string phone, string password, DateTime birthday, bool archived, bool validated)
         {
             int id = 0;
@@ -169,7 +173,7 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// To validate the new account it sends the validation email to the email address of new user.
         /// </summary>
         /// <param name="id"></param>
         private void SendValidationEmail(int id)

@@ -1,4 +1,8 @@
-﻿using System;
+﻿// author: Kwangeun Oh
+// date: 2019.03.02
+// file: Common.cs
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,10 +12,13 @@ using System.Web.UI;
 
 namespace VieKoreaFoods
 {
+    /// <summary>
+    /// Common Class has common methods to be used frequently such calling sql parameters
+    /// </summary>
     public class Common
     {
         /// <summary>
-        /// 
+        /// Get CartId as random combination of integers and strings that is set by calling global universal identifier.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="response"></param>
@@ -38,10 +45,10 @@ namespace VieKoreaFoods
         }
 
         /// <summary>
-        /// 
+        /// Get the count of items in the cart.
         /// </summary>
         /// <param name="cartId"></param>
-        /// <returns></returns>
+        /// <returns>returns the number of the cart</returns>
         public static int GetCartCount(string cartId)
         {
             string CartUId = cartId;
@@ -62,7 +69,7 @@ namespace VieKoreaFoods
         }
 
         /// <summary>
-        /// 
+        /// Check whether or not the User session key are authenticated, authenticatedUser, admin, and validatedUser
         /// </summary>
         /// <param name="session"></param>
         /// <returns></returns>
@@ -73,7 +80,7 @@ namespace VieKoreaFoods
         }
 
         /// <summary>
-        /// 
+        /// Check whether or not the Admin session key are authenticated, authenticatedUser, admin, and validatedUser
         /// </summary>
         /// <param name="session"></param>
         /// <returns></returns>
@@ -84,7 +91,7 @@ namespace VieKoreaFoods
         }
 
         /// <summary>
-        /// 
+        /// Get authenticated user when session key is authenticatedUser
         /// </summary>
         /// <param name="session"></param>
         /// <returns></returns>
@@ -119,7 +126,7 @@ namespace VieKoreaFoods
         }
 
         /// <summary>
-        /// 
+        /// Get the subtotal of items in the cart excluding tax and delivery cost.
         /// </summary>
         /// <param name="request"></param>
         /// <param name="response"></param>
@@ -142,7 +149,7 @@ namespace VieKoreaFoods
             return cartTotal;
         }
 
-        #region [Common Product SqlParams]
+        #region [Common Product SqlParams] - Set Each content of the product as Sql Parameter
         public static SqlParameter SetProductIdParam(int value)
         {
             return new SqlParameter()
@@ -256,7 +263,7 @@ namespace VieKoreaFoods
         }
         #endregion
 
-        #region [Common Customer SqlParams]
+        #region [Common Customer SqlParams]  - Set Each content of the customer as Sql Parameter
         public static SqlParameter SetCustomerIdParam(int value)
         {
             return new SqlParameter()
@@ -395,7 +402,7 @@ namespace VieKoreaFoods
         }
         #endregion
 
-        #region [Common Administrator SqlParams]
+        #region [Common Administrator SqlParams] -  - Set Each content of the administrator as Sql Parameter
         public static SqlParameter SetAdminIdParam(int value)
         {
             return new SqlParameter()

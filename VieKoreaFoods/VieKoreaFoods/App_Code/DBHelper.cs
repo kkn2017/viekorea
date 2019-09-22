@@ -1,4 +1,8 @@
-﻿using System;
+﻿// author: Kwangeun Oh
+// date: 2019.03.02
+// file: DBHelper.cs
+
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -8,6 +12,9 @@ using System.Web.UI.WebControls;
 
 namespace VieKoreaFoods
 {
+    /// <summary>
+    /// Class to help connect the database using Sql.
+    /// </summary>
     public class DBHelper
     {
         /// <summary>

@@ -1,22 +1,31 @@
-﻿using System;
+﻿// author: Kwangeun Oh
+// date: 2019.03.05
+// file: validation.aspx.cs
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace VieKoreaFoods.UserPage
 {
+    /// <summary>
+    /// Validation Partial Class
+    /// </summary>
     public partial class validation : System.Web.UI.Page
     {
+        /// <summary>
+        /// Validation Page is loaded.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)
             {
                 bool validated = false;
 
+                // User Account is validated, when the validation gets id querystring. 
                 if(!string.IsNullOrEmpty(Request.QueryString["id"]))
                 {
                     validated = true;

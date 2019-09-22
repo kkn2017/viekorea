@@ -557,10 +557,10 @@ td {text-align: left;}
 		position: relative;
 	}
 	.slide_show .cuisines {
-		padding: 10px;
+		padding: 3px;
 	}
 	.slide_show .cuisine {	
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 		margin: 0 20px;
 	}
 	.slide_show .slide .overlay {
@@ -636,11 +636,11 @@ td {text-align: left;}
 }
 @media (min-width: 650px) and (max-width: 739px) {
 	.slide_show .cuisines {
-		padding: 10px;
+		padding: 5px;
 	}
 	.slide_show .cuisine {	
 		font-size: 1.5rem;
-		margin: 0 60px;
+		margin: 0 10px;
 	}
 }
 @media (min-width: 740px) {
@@ -671,8 +671,8 @@ td {text-align: left;}
 	}
 	.slide_show .cuisine {	
 		position: relative;
-		font-size: 1.5rem;
-		margin: auto 80px;
+		font-size: 1.8rem;
+		margin: auto 30px;
 	}
 	.slide_show .slide .overlay {
 		font-size: 1.4rem;

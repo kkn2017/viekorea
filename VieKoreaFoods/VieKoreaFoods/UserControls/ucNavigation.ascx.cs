@@ -1,14 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+﻿// author: Kwangeun Oh
+// date: 2019.03.05
+// file: ucNavigation.ascx.cs
+
+using System;
 
 namespace VieKoreaFoods.UserControl
 {
+    /// <summary>
+    /// ucNavigation Partial Class
+    /// </summary>
     public partial class ucNavigation : System.Web.UI.UserControl
     {
+        /// <summary>
+        /// Page is loaded.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
 

@@ -1,24 +1,31 @@
-﻿using System;
+﻿// author: Kwangeun Oh
+// date: 2019.03.05
+// file: ucLogin.ascx.cs
+
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace VieKoreaFoods.UserControls
 {
+    /// <summary>
+    /// ucLogin Partial Class
+    /// </summary>
     public partial class ucLogin : System.Web.UI.UserControl
     {
         public bool IsAdmin { get; set; }
 
         /// <summary>
-        /// 
+        /// Login Page is loaded.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            // If the admin login is activated, user account hyperlink is disabled 
+            // because admin users don't need their own account page.
             if(this.IsAdmin == false)
             {
                 if (Session["authenticated"] != null)
@@ -42,7 +49,7 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// User Login is successfuly executed if the user account and password are correct. 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -68,7 +75,7 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// Admin Login is successfuly executed if the user account and password are correct.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -87,7 +94,7 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// Checks whether or not admin user name and password are correct.
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="password"></param>
@@ -126,7 +133,7 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// Checks whether or not user name and password are correct.
         /// </summary>
         /// <param name="userName"></param>
         /// <param name="password"></param>
@@ -177,7 +184,7 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// Check whether or not the user account is validated.
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
@@ -196,7 +203,7 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// Check whether or not the user account is archived.
         /// </summary>
         /// <param name="userName"></param>
         /// <returns></returns>
@@ -215,7 +222,7 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// As logout button event handler, logout is activated after clicking the button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -232,7 +239,7 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// As logout button event handler, admin logout is activated after clicking the button.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

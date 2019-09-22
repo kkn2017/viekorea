@@ -1,18 +1,23 @@
-﻿using System;
+﻿// author: Kwangeun Oh
+// date: 2019.03.05
+// file: account.aspx.cs
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace VieKoreaFoods.UserPage
 {
+    /// <summary>
+    /// MyAccount Partial Class
+    /// </summary>
     public partial class MyAccount : System.Web.UI.Page
     {
         /// <summary>
-        /// 
+        /// User Account Page is loaded
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -24,6 +29,7 @@ namespace VieKoreaFoods.UserPage
             {
                 string user = Common.GetAuthenticatedUser(Session);
 
+                // By selecting querystring between Order Histroy and Privacy, the information of selected one is populated on the page.
                 if ( section == "OrderHistory")
                 {                    
                     int customerId = DBHelper.GetQueryValue<int>("SelectCustomers", "id", new SqlParameter[] 

@@ -1,23 +1,27 @@
-﻿using System;
+﻿// author: Kwangeun Oh
+// date: 2019.03.05
+// file: order.aspx.cs
+
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
 using System.Net.Mail;
 using System.Text;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace VieKoreaFoods.UserPage
 {
+    /// <summary>
+    /// Order Partial Class
+    /// </summary>
     public partial class order : System.Web.UI.Page
     {
         public bool ConfirmedOrder { get; set; }
 
         /// <summary>
-        /// 
+        /// Order Page is loaded
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -27,6 +31,7 @@ namespace VieKoreaFoods.UserPage
             {
                 if (this.rblPaymentMethod.SelectedItem != null)
                 {
+                    // If the user select the advance payment, card payment method is displayed.
                     if (this.rblPaymentMethod.SelectedItem.ToString() == "Advance Payment")
                     {
                         this.tblCreditCard.Visible = true;
@@ -84,10 +89,10 @@ namespace VieKoreaFoods.UserPage
         }
 
         /// <summary>
-        /// 
+        /// Submit the order of selected items.
         /// </summary>
-        /// <param name="name"></param>
-        /// <returns></returns>
+        /// <param name="name">User Name</param>
+        /// <returns>it returns order number</returns>
         private int SubmitOrder(string name)
         {
             int orderNo = 0;
@@ -174,7 +179,7 @@ namespace VieKoreaFoods.UserPage
         }
 
         /// <summary>
-        /// 
+        /// Send the email about the confirmation of the order.
         /// </summary>
         /// <param name="name"></param>
         /// <param name="number"></param>
@@ -225,7 +230,7 @@ namespace VieKoreaFoods.UserPage
         }
 
         /// <summary>
-        /// 
+        /// Build the body of the confirmation email
         /// </summary>
         /// <param name="number"></param>
         /// <returns></returns>

@@ -63,7 +63,6 @@ file: Site.Master--%>
 				<ul>
 					<li><a href="https://www.twitter.com"><span class="twitter">Twitter</span></a></li>
 					<li><a href="https://www.facebook.com"><span class="facebook">Facebook</span></a></li>
-					<li><a href="#"><span class="rss">RSS</span></a></li>
 				</ul>
 			</nav>
 			<div class="copyright">

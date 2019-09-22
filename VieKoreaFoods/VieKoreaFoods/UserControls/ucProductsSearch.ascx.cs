@@ -1,23 +1,32 @@
-﻿using System;
+﻿// author: Kwangeun Oh
+// date: 2019.03.05
+// file: ucProductsSearch.ascx.cs
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace VieKoreaFoods.UserControls
 {
+    /// <summary>
+    /// ucProductsSearch Partial Class
+    /// </summary>
     public partial class ucProductsSearch : System.Web.UI.UserControl
     {
         string[] removedSearchWords = { "the", "at", "a", "and", "or" };
 
+        /// <summary>
+        /// Page is loaded.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
         /// <summary>
-        /// 
+        /// As Search button event handler, it above all check whether or not the all words check box is checked. 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -28,9 +37,10 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// It builds the querystring. In case of more than one word are filled in the search box,
+        /// Querstring would is made like word1="blah1"&word2="blah2".
         /// </summary>
-        /// <returns></returns>
+        /// <returns>returns complete querystring.</returns>
         private string QueryStringBuilder()
         {
             string queryStringBuild = "?";
@@ -46,9 +56,9 @@ namespace VieKoreaFoods.UserControls
         }
 
         /// <summary>
-        /// 
+        /// Words filled in the search box are divided into a each word.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns an array of all words</returns>
         private string[] FilterSearchWords()
         {
             string[] words = this.txtSearch.Text.Split(new[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries);
