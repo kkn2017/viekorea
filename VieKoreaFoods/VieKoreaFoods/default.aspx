@@ -1,6 +1,6 @@
 ﻿<%--author: Kwangeun Oh
 date: 2019.03.05
-file: index.aspx--%>
+file: default.aspx--%>
 
 <%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="default.aspx.cs" Inherits="VieKoreaFoods._default" %>
 
