@@ -71,6 +71,35 @@
     <Content Include="Admin\admin_maintenance.aspx" />
     <Content Include="default.aspx" />
     <Content Include="img\about.png" />
+    <Content Include="img\foods\bibim-noodle.jpg" />
+    <Content Include="img\foods\chaca.png" />
+    <Content Include="img\foods\fried-duck.jpg" />
+    <Content Include="img\foods\fried-fish.jpg" />
+    <Content Include="img\foods\fried-rice.jpg" />
+    <Content Include="img\foods\fried-spring-rolls.jpg" />
+    <Content Include="img\foods\mandu.jpg" />
+    <Content Include="img\foods\miso-soup.jpg" />
+    <Content Include="img\foods\squid-stir-fry.jpg" />
+    <Content Include="img\foods\tteokbokki.jpg" />
+    <Content Include="sql\Create_Tables&amp;SPROC.sql" />
+    <Content Include="sql\Insert_Data.sql" />
+    <Content Include="tmp_img\bibim-noodle.jpg" />
+    <Content Include="tmp_img\bibimbap.png" />
+    <Content Include="tmp_img\chaca.png" />
+    <Content Include="tmp_img\fried-duck.jpg" />
+    <Content Include="tmp_img\fried-fish.jpg" />
+    <Content Include="tmp_img\fried-rice.jpg" />
+    <Content Include="tmp_img\fried-spring-rolls.jpg" />
+    <Content Include="tmp_img\galbijjim.png" />
+    <Content Include="tmp_img\kimbab.png" />
+    <Content Include="tmp_img\makguksu.png" />
+    <Content Include="tmp_img\mandu.jpg" />
+    <Content Include="tmp_img\miso-soup.jpg" />
+    <Content Include="tmp_img\pho.png" />
+    <Content Include="tmp_img\seolleongtang.png" />
+    <Content Include="tmp_img\squid-stir-fry.jpg" />
+    <Content Include="tmp_img\taco.png" />
+    <Content Include="tmp_img\tteokbokki.jpg" />
     <Content Include="UserControls\ucCart.ascx" />
     <Content Include="UserControls\ucLogin.ascx" />
     <Content Include="UserControls\ucProductsSearch.ascx" />
@@ -280,9 +309,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="sql\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

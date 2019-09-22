@@ -167,7 +167,6 @@ C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\bin\r
 C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\bin\roslyn\VBCSCompiler.exe.config
 C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\obj\Debug\VieKoreaFoods.csprojAssemblyReference.cache
 C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\obj\Debug\VieKoreaFoods.csproj.CoreCompileInputs.cache
 C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\obj\Debug\VieKoreaFoods.csproj.CopyComplete
 C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\obj\Debug\VieKoreaFoods.dll
