@@ -171,3 +171,4 @@ C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\obj\D
 C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\obj\Debug\VieKoreaFoods.csproj.CopyComplete
 C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\obj\Debug\VieKoreaFoods.dll
 C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\obj\Debug\VieKoreaFoods.pdb
+C:\KE_Oh\작업장\웹사이트제작\viekorea\VieKoreaFoods\VieKoreaFoods\obj\Debug\VieKoreaFoods.csprojAssemblyReference.cache

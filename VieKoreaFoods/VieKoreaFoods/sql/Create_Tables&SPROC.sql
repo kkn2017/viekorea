@@ -534,8 +534,8 @@ BEGIN TRANSACTION
 	
     INSERT INTO @OrderDetails
 	SELECT c.prodId,
-		   c.qty,
-		   p.price
+		   p.price,
+		   c.qty		   
 	FROM Cart c INNER JOIN Products p ON c.prodId = p.id
 	WHERE cartUId = @CartUId
 

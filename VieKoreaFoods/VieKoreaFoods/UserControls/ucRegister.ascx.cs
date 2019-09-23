@@ -180,24 +180,25 @@ namespace VieKoreaFoods.UserControls
         {
             using (MailMessage message = new MailMessage("noreply@viekor.com", this.txtEmailAddress.Text.Trim()))
             {
+                string currPath = Request.RawUrl.ToString();
                 message.Subject = "New Account Validation";
                 string body = $"Hi {this.txtUserName.Text.Trim()}, <br /> This is VIEKOR Restaurant. Thank you for creating a new account"
                     + $"<br /><br />Please click the following link to validate your account."
-                    + $"<br /><a href={Request.Url.AbsoluteUri.Replace("~/UserPage/register.aspx", $"~/UserPage/validation.aspx?id={id}")}"
-                    + $"<br /><br /><h2>Thank you again.</ h2>";
+                    + $"<br /><a href={Request.Url.AbsoluteUri.Replace(currPath, Convert.ToString($"/UserPage/validation.aspx?id={id}"))}>Click here to activate your account.</a>"
+                    + $"<br /><br /><h2>Thank you again.</h2>";
                 message.Body = body;
                 message.IsBodyHtml = true;
 
-                DirectoryInfo directInfo = new DirectoryInfo(@"c:\KE Oh\Email");
+                DirectoryInfo directInfo = new DirectoryInfo(@"c:\KE_Oh\Email");
 
                 if(!directInfo.Exists)
                 {
-                    Directory.CreateDirectory(@"c:\KE Oh\Email");
+                    Directory.CreateDirectory(@"c:\KE_Oh\Email");
                 }
 
                 SmtpClient smtp = new SmtpClient();
                 smtp.DeliveryMethod = SmtpDeliveryMethod.SpecifiedPickupDirectory;
-                smtp.PickupDirectoryLocation = @"c:\KE Oh\Email";
+                smtp.PickupDirectoryLocation = directInfo.ToString();
                 smtp.Send(message);
             }
         }

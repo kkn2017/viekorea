@@ -200,17 +200,17 @@ namespace VieKoreaFoods.UserPage
 
                 using (MailMessage mail = new MailMessage("noreply@viekor.com", emailAddress))
                 {
-                    string htmlHead = "<html><head><style>body{font-family:Arial; color:#000;} table, tr, td{color:blue; border:1px solid #000; font-family:Arial;} </style></head>";
+                    string htmlHead = "<html><head><style>body{font-family:Arial; color:#000;} table{border-collapse: collapse; border:1px solid #000; font-family:Arial;} </style></head>";
 
                     mail.Subject = $"Order Confirmation Number: { number.ToString() }";
                     mail.Body = $"{htmlHead}<body>Your order now has been confirmed.<br /> <br /><h2>Order Number: {number.ToString()}</h2><br /><br />"
                        + $"<h3>Order Details</h3><br />{BuildEmailOrderTable(number)}<br /></body></html>";
                     mail.IsBodyHtml = true;
 
-                    DirectoryInfo dirInfo = new DirectoryInfo(@"c:\KE Oh\Email");
+                    DirectoryInfo dirInfo = new DirectoryInfo(@"c:\KE_Oh\Email");
                     if(!dirInfo.Exists)
                     {
-                        Directory.CreateDirectory(@"c:\KE Oh\Email");
+                        Directory.CreateDirectory(@"c:\KE_Oh\Email");
                     }
 
                     SmtpClient smtp = new SmtpClient();

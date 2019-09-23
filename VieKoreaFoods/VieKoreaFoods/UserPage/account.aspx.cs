@@ -156,8 +156,6 @@ namespace VieKoreaFoods.UserPage
         {
             try
             {
-                List<SqlParameter> prms = new List<SqlParameter>();
-
                 foreach (GridViewRow row in this.grdOrderHistory.Rows)
                 {
                     if (row.RowType == DataControlRowType.DataRow)
@@ -166,6 +164,7 @@ namespace VieKoreaFoods.UserPage
 
                         if (chkRemove.Checked == true)
                         {
+                            List<SqlParameter> prms = new List<SqlParameter>();
                             int orderNumber = Convert.ToInt32(this.grdOrderHistory.DataKeys[row.RowIndex].Value);
                             prms.Add(new SqlParameter()
                             {
@@ -173,11 +172,10 @@ namespace VieKoreaFoods.UserPage
                                 SqlDbType = SqlDbType.Int,
                                 Value = orderNumber
                             });
+                            DBHelper.NonQuery("DeleteOrders", prms.ToArray());
                         }
                     }
-                }
-
-                DBHelper.NonQuery("DeleteOrders", prms.ToArray());
+                }                
             }
             catch (SqlException ex)
             {
@@ -207,9 +205,9 @@ namespace VieKoreaFoods.UserPage
                     {
                         new SqlParameter()
                         {
-                            ParameterName = "@OrderId",
+                           ParameterName = "@OrderId",
                            SqlDbType = SqlDbType.NVarChar,
-                            Value = orderNumber
+                           Value = orderNumber
                          }
                     });
 
