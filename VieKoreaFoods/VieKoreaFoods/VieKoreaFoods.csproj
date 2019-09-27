@@ -143,7 +143,6 @@
     <Content Include="UserControls\ucSlideOrMenu.ascx" />
     <Content Include="UserPage\register.aspx" />
     <Content Include="UserPage\validation.aspx" />
-    <Content Include="validation.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -295,13 +294,6 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UserPage\validation.aspx.designer.cs">
-      <DependentUpon>validation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="validation.aspx.cs">
-      <DependentUpon>validation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="validation.aspx.designer.cs">
       <DependentUpon>validation.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
