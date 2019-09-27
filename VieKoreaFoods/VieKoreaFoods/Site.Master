@@ -6,7 +6,6 @@ file: Site.Master--%>
 
 <%@ Register Src="~/UserControls/ucProductsSearch.ascx" TagPrefix="uc1" TagName="ucProductsSearch" %>
 
-
 <!DOCTYPE html>
 <html>
 <head runat="server">

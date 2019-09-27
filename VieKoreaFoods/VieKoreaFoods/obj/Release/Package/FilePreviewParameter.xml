@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="junny8180-001-site2" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\KE_Oh\\작업장\\웹사이트제작\\viekorea\\VieKoreaFoods\\VieKoreaFoods\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\KE_Oh\\작업장\\웹사이트제작\\viekorea\\VieKoreaFoods\\VieKoreaFoods\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="cnn-Web.config Connection String" description="" value="Data Source=SQL5045.site4now.net;Initial Catalog=DB_A4E2E3_viekoreadb;User Id=DB_A4E2E3_viekoreadb_admin;Password=!ase@346ANK;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\KE_Oh\\작업장\\웹사이트제작\\viekorea\\VieKoreaFoods\\VieKoreaFoods\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='cnn']/@connectionString" />
+  </parameter>
+</parameters>
